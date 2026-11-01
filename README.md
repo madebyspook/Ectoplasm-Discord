@@ -67,14 +67,6 @@ Save the file and inspect the result in Discord. Keep a backup: **replacing the 
 
 For additional controls, use BetterDiscord Custom CSS or inspect [src/abstracts/_variables.scss](src/abstracts/_variables.scss). Keep Custom CSS overrides consistent with the mode selected in the downloaded file. Existing glass and glow controls retain their separate roles. Changing the accent or wallpaper can affect readability; inspect your chosen settings in Discord.
 
-## Repository rename
-
-The project repository is now [Ectoplasma-Discord](https://github.com/madebyspook/Ectoplasma-Discord); the theme is still **Ectoplasma** and its installable filename remains `Ectoplasma.theme.css`.
-
-GitHub Pages does not redirect the former repository path. If your installed loader imports CSS from `/Ectoplasma/`, back up your configuration and download the current loader again after the migration is merged and deployed. Restore your settings below the import. Alternatively, update the repository path to `/Ectoplasma-Discord/` in its `@import`, `@source`, and `@updateUrl` URLs, preserving your configuration. Do not rely on automatic loader updates.
-
-The [rename checklist](docs/REPOSITORY_RENAME.md) covers deployment verification and remaining manual checks.
-
 ## Updates and removal
 
 The loader imports a moving hosted stylesheet. Published CSS changes can reach installed copies when Discord reloads that resource; browser caching can delay them. Reload Discord if styling appears stale, then check whether GitHub Pages is reachable. Updating the import does not necessarily update the version displayed by the installed loader.
