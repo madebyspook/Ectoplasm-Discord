@@ -7,6 +7,8 @@ Keep changes focused and preserve the existing appearance unless a visual change
 Use Node.js 22 or newer and npm, then create a descriptive branch from the current default branch. Avoid direct commits to `main`.
 
 ```sh
+git clone https://github.com/madebyspook/Ectoplasma-Discord.git
+cd Ectoplasma-Discord
 npm ci
 npm run build
 npm run check
@@ -27,7 +29,7 @@ Follow [docs/TESTING.md](docs/TESTING.md). For appearance-preserving work, compa
 
 ## Report problems
 
-Use the [issue templates](https://github.com/madebyspook/Ectoplasma/issues/new/choose). Include steps to reproduce, expected and actual behavior, a screenshot where useful, theme version, Discord/BetterDiscord versions, OS, appearance settings, and other enabled themes/plugins. Redact personal information from screenshots and logs.
+Use the [issue templates](https://github.com/madebyspook/Ectoplasma-Discord/issues/new/choose). Include steps to reproduce, expected and actual behavior, a screenshot where useful, theme version, Discord/BetterDiscord versions, OS, appearance settings, and other enabled themes/plugins. Redact personal information from screenshots and logs.
 
 ## Prepare a review
 

@@ -71,9 +71,10 @@ test('build emits matching metadata, preserves public URLs, and check never rewr
       assert.ok(file.startsWith('/**\n * @name Ectoplasma\n'));
       assert.equal((file.match(/@name /g) || []).length, 1);
       assert.ok(file.includes(` * @version ${version}\n`));
+      assert.ok(file.includes(' * @source https://github.com/madebyspook/Ectoplasma-Discord\n'));
     }
-    assert.match(loader, /@updateUrl https:\/\/madebyspook\.github\.io\/Ectoplasma\/Ectoplasma\.theme\.css/);
-    assert.match(loader, /@import url\("https:\/\/madebyspook\.github\.io\/Ectoplasma\/dist\/Ectoplasma\.css"\);/);
+    assert.match(loader, /@updateUrl https:\/\/madebyspook\.github\.io\/Ectoplasma-Discord\/Ectoplasma\.theme\.css/);
+    assert.match(loader, /@import url\("https:\/\/madebyspook\.github\.io\/Ectoplasma-Discord\/dist\/Ectoplasma\.css"\);/);
     const before = outputs(directory);
     assert.equal(run(directory, '--check').status, 0);
     assert.deepEqual(outputs(directory), before);
