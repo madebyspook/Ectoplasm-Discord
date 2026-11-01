@@ -1,16 +1,16 @@
 {
-  "name": "ectoplasma",
+  "name": "ectoplasma-discord",
   "version": "1.4.3",
   "private": true,
   "description": "A sleek, near-black Discord theme with icy blue accents and optional blurred backgrounds for a translucent, glass-like appearance.",
   "author": "Made By Spook",
-  "homepage": "https://madebyspook.github.io/Ectoplasma/",
+  "homepage": "https://madebyspook.github.io/Ectoplasma-Discord/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/madebyspook/Ectoplasma.git"
+    "url": "https://github.com/madebyspook/Ectoplasma-Discord.git"
   },
   "bugs": {
-    "url": "https://github.com/madebyspook/Ectoplasma/issues"
+    "url": "https://github.com/madebyspook/Ectoplasma-Discord/issues"
   },
   "license": "UNLICENSED",
   "scripts": {
