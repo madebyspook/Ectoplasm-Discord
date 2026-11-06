@@ -189,8 +189,12 @@ body,
   filter: var(--spook-glow-filter-strong);
 }
 
-/* Read & Muted channel, icon, category and collapse arrow */
-#app-mount .container__2637a .link__2ea32 .name__2ea32,
+/* Default channel names; unread, selected and hover colors follow below. */
+#app-mount .container__2637a .link__2ea32 .name__2ea32 {
+  color: var(--spook-secondary) !important;
+}
+
+/* Read & Muted channel icon, category and collapse arrow */
 #app-mount .container__2637a .link__2ea32 .icon__2ea32,
 #app-mount .container__2637a .containerDefault__29444 .icon__29444 {
   color: var(--spook-primary) !important;
@@ -265,6 +269,22 @@ body,
 #app-mount .bar__7aaec .barText__7aaec,
 #app-mount .bar__7aaec .unreadIcon__7aaec {
   color: var(--spook-highlight) !important;
+}
+
+/* Add to DM: scope the shared modal surface by its friend-list content. */
+#app-mount [role=dialog] .container__8a031:has(.scrollerInner_cba592) {
+  background: var(--spook-glass-light) !important;
+  border: var(--spook-glass-border) !important;
+  border-radius: var(--spook-glass-border-radius);
+  box-shadow: var(--spook-glass-box-shadow) !important;
+  backdrop-filter: var(--spook-glass-filter);
+  -webkit-backdrop-filter: var(--spook-glass-filter);
+}
+
+/* DM message authors use primary text without the theme's username highlight. */
+#app-mount .content__5e434:has(.privateChannels_e6b769) .chatContent_f75fb0 .username_c19a55 {
+  color: var(--spook-primary) !important;
+  text-shadow: none;
 }
 
 /* DM list background */
@@ -1286,6 +1306,18 @@ body,
   background: transparent !important;
 }
 
+/* Search results use the same dark glass as the channel and member lists. */
+#app-mount .searchResultsWrap_a98f3b {
+  background: var(--spook-glass-dark) !important;
+  backdrop-filter: var(--spook-glass-filter);
+  -webkit-backdrop-filter: var(--spook-glass-filter);
+}
+
+/* Clear result surfaces without changing controls, embeds or code blocks. */
+#app-mount .searchResultsWrap_a98f3b .searchResult__80bf8 {
+  background: transparent !important;
+}
+
 /* BetterDiscord search background */
 #app-mount .bd-search-wrapper {
   background: transparent !important;
@@ -1429,6 +1461,25 @@ body,
   border: var(--spook-glass-border) !important;
   border-radius: var(--spook-glass-border-radius);
   box-shadow: var(--spook-glass-box-shadow) !important;
+}
+
+/* Forum channel hover preview: retain its existing glass and add blur. */
+#app-mount .popout__76f04.popover_d6f39b {
+  --spook-muted: var(--spook-secondary);
+  backdrop-filter: var(--spook-glass-filter);
+  -webkit-backdrop-filter: var(--spook-glass-filter);
+}
+
+/* Forum preview names and labels. */
+#app-mount .popout__76f04.popover_d6f39b .label__76f04,
+#app-mount .popout__76f04.popover_d6f39b .name__76f04 {
+  color: var(--spook-primary) !important;
+}
+
+/* Forum preview title, descriptions and timestamps. */
+#app-mount .popout__76f04.popover_d6f39b .title__76f04,
+#app-mount .popout__76f04.popover_d6f39b .label__76f04 > div:not(.name__76f04) {
+  color: var(--spook-muted) !important;
 }
 
 /* Glass styling */

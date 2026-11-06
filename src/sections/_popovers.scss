@@ -17,6 +17,24 @@
     @include mixins.glass-panel();
 }
 
+/* Forum channel hover preview: retain its existing glass and add blur. */
+#app-mount .popout__76f04.popover_d6f39b {
+    --spook-muted: var(--spook-secondary);
+    @include mixins.backdrop-blur();
+}
+
+/* Forum preview names and labels. */
+#app-mount .popout__76f04.popover_d6f39b .label__76f04,
+#app-mount .popout__76f04.popover_d6f39b .name__76f04 {
+    color: var(--spook-primary) !important;
+}
+
+/* Forum preview title, descriptions and timestamps. */
+#app-mount .popout__76f04.popover_d6f39b .title__76f04,
+#app-mount .popout__76f04.popover_d6f39b .label__76f04 > div:not(.name__76f04) {
+    color: var(--spook-muted) !important;
+}
+
 /* Glass styling */
 #app-mount .header_d9c882 {
     @include mixins.glass-panel();

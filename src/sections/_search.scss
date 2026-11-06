@@ -1,5 +1,16 @@
 @use "../abstracts/mixins";
 
+/* Search results use the same dark glass as the channel and member lists. */
+#app-mount .searchResultsWrap_a98f3b {
+    background: var(--spook-glass-dark) !important;
+    @include mixins.backdrop-blur();
+}
+
+/* Clear result surfaces without changing controls, embeds or code blocks. */
+#app-mount .searchResultsWrap_a98f3b .searchResult__80bf8 {
+    background: transparent !important;
+}
+
 /* BetterDiscord search background */
 #app-mount .bd-search-wrapper {
     background: transparent !important;
