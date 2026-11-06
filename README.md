@@ -1,23 +1,23 @@
-# Ectoplasma
+# Ectoplasm
 
 A BetterDiscord theme with a near-black palette, icy blue accents, translucent surfaces, and neon glow effects.
 
-[Download Ectoplasma.theme.css](https://madebyspook.github.io/Ectoplasm-Discord/Ectoplasma.theme.css) · [Report a problem](https://github.com/madebyspook/Ectoplasm-Discord/issues) · [Contributing](CONTRIBUTING.md)
+[Download Ectoplasm.theme.css](https://madebyspook.github.io/Ectoplasm-Discord/Ectoplasm.theme.css) · [Report a problem](https://github.com/madebyspook/Ectoplasm-Discord/issues) · [Contributing](CONTRIBUTING.md)
 
 ## Install
 
 1. Install [BetterDiscord](https://betterdiscord.app/) if needed.
-2. Download **Ectoplasma.theme.css** using the link above. Save the CSS file itself, keeping that filename; avoid a `.txt` or `.html` extension.
+2. Download **Ectoplasm.theme.css** using the link above. Save the CSS file itself, keeping that filename; avoid a `.txt` or `.html` extension.
 3. In Discord, open **User Settings → BetterDiscord → Themes → Open Themes Folder** and put the file there.
-4. Enable **Ectoplasma**. Disable other full themes and **EctoplasmaDev** while testing it.
+4. Enable **Ectoplasm**. Disable other full themes and **EctoplasmDev** while testing it.
 
-Node.js, npm, and the repository source are only needed for development. `dist/Ectoplasma.css` is the hosted stylesheet, not the file to install.
+Node.js, npm, and the repository source are only needed for development. `dist/Ectoplasm.css` is the hosted stylesheet, not the file to install.
 
-The installed theme loads its styling from [the hosted CSS](https://madebyspook.github.io/Ectoplasm-Discord/dist/Ectoplasma.css). It needs access to GitHub Pages; an import failure can leave Discord largely unthemed. Successful builds do not establish runtime compatibility. Tested environments and visual results must be recorded using the [manual checklist](docs/TESTING.md).
+The installed theme loads its styling from [the hosted CSS](https://madebyspook.github.io/Ectoplasm-Discord/dist/Ectoplasm.css). It needs access to GitHub Pages; an import failure can leave Discord largely unthemed. Successful builds do not establish runtime compatibility. Tested environments and visual results must be recorded using the [manual checklist](docs/TESTING.md).
 
 ## User configuration
 
-Download [Ectoplasma.theme.css](https://madebyspook.github.io/Ectoplasm-Discord/Ectoplasma.theme.css), place it in your BetterDiscord themes folder, and enable it. Open the downloaded file in a text editor or BetterDiscord's theme editor and find **USER CONFIGURATION** below the `@import` line. Keep that import in place.
+Download [Ectoplasm.theme.css](https://madebyspook.github.io/Ectoplasm-Discord/Ectoplasm.theme.css), place it in your BetterDiscord themes folder, and enable it. Open the downloaded file in a text editor or BetterDiscord's theme editor and find **USER CONFIGURATION** below the `@import` line. Keep that import in place.
 
 ### Accent color
 
@@ -38,7 +38,7 @@ Solid mode is currently enabled in the source configuration. Enable exactly one 
 --spook-background-fill: transparent;
 ```
 
-This preserves the existing BackgroundManager integration. BackgroundManager supplies `--bgm-url`; Ectoplasma hides its global wallpaper container and uses that image in its own wallpaper-backed views. There is no automatic fallback if `--bgm-url` is undefined.
+This preserves the existing BackgroundManager integration. BackgroundManager supplies `--bgm-url`; Ectoplasm hides its global wallpaper container and uses that image in its own wallpaper-backed views. There is no automatic fallback if `--bgm-url` is undefined.
 
 **2. Custom wallpaper — no BackgroundManager required**
 
@@ -71,9 +71,9 @@ For additional controls, use BetterDiscord Custom CSS or inspect [src/abstracts/
 
 The loader imports a moving hosted stylesheet. Published CSS changes can reach installed copies when Discord reloads that resource; browser caching can delay them. Reload Discord if styling appears stale, then check whether GitHub Pages is reachable. Updating the import does not necessarily update the version displayed by the installed loader.
 
-If the loader itself changes, download `Ectoplasma.theme.css` again and replace the installed copy. Back up edits to the downloaded configuration before replacing it; separate Custom CSS overrides are retained. The `@updateUrl` metadata is not a guarantee of automatic loader updates. No BetterDiscord directory approval or in-client updater support is claimed.
+If the loader itself changes, download `Ectoplasm.theme.css` again and replace the installed copy. Back up edits to the downloaded configuration before replacing it; separate Custom CSS overrides are retained. The `@updateUrl` metadata is not a guarantee of automatic loader updates. No BetterDiscord directory approval or in-client updater support is claimed.
 
-To uninstall, disable Ectoplasma and remove `Ectoplasma.theme.css` from the theme folder. Remove any Ectoplasma-specific Custom CSS overrides you added. If you used the development theme, disable and remove `EctoplasmaDev.theme.css` too.
+To uninstall, disable Ectoplasm and remove `Ectoplasm.theme.css` from the theme folder. Remove any Ectoplasm-specific Custom CSS overrides you added. If you used the development theme, disable and remove `EctoplasmDev.theme.css` too.
 
 For blank or unexpected styling, check the filename, hosted CSS access, other enabled themes, your Custom CSS, and the wallpaper behavior above. Include relevant details in a [bug report](https://github.com/madebyspook/Ectoplasm-Discord/issues/new/choose).
 
@@ -90,8 +90,8 @@ npm test
 
 `package.json` is the sole source of production theme metadata, including version, author, and description. `src/loader.scss` emits the configuration body; the build adds metadata and the remote import before it. `npm run build` compiles `src/main.scss` and generates two tracked outputs:
 
-- `Ectoplasma.theme.css`: the primary installable remote loader, with the existing public import URL.
-- `dist/Ectoplasma.css`: the complete compiled stylesheet and matching metadata.
+- `Ectoplasm.theme.css`: the primary installable remote loader, with the existing public import URL.
+- `dist/Ectoplasm.css`: the complete compiled stylesheet and matching metadata.
 
 Edit `src/abstracts/_configuration.scss` for shared configuration, other SCSS for styling, and package metadata for theme identity. The configuration is emitted after the hosted defaults and after the loader import so local settings override imported defaults. Do not manually edit generated CSS. Expanded CSS and disabled source maps are used for both development and production; a separate minification pipeline is unnecessary here.
 
@@ -111,13 +111,13 @@ On macOS, opt into updating a separate local development theme:
 npm run watch -- --dev
 ```
 
-The default destination is `~/Library/Application Support/BetterDiscord/themes/EctoplasmaDev.theme.css`. The themes folder must already exist. To select an existing theme folder explicitly, including on Windows or Linux:
+The default destination is `~/Library/Application Support/BetterDiscord/themes/EctoplasmDev.theme.css`. The themes folder must already exist. To select an existing theme folder explicitly, including on Windows or Linux:
 
 ```sh
 npm run watch -- --dev --themes-dir "/absolute/path/to/BetterDiscord/themes"
 ```
 
-Enable **EctoplasmaDev** and disable **Ectoplasma** to test local changes without waiting for hosting. The dev file contains the full local stylesheet, a single development header, and no production update URL. It is written **in place** because replacing the file atomically can make BetterDiscord unload it. Repository outputs use atomic replacement.
+Enable **EctoplasmDev** and disable **Ectoplasm** to test local changes without waiting for hosting. The dev file contains the full local stylesheet, a single development header, and no production update URL. It is written **in place** because replacing the file atomically can make BetterDiscord unload it. Repository outputs use atomic replacement.
 
 Installation errors are reported and the watcher keeps running; save a watched file after correcting the problem to retry. Invalid options or a missing theme folder at startup fail immediately. `--dev` requires watch mode; the old documented `--betterdiscord` flag is unsupported and rejected. Plain build/watch never install into BetterDiscord.
 
@@ -129,8 +129,8 @@ src/loader.scss          Source for the loader configuration body
 src/abstracts/           Shared user configuration, CSS variables, and mixins
 src/sections/            Styles grouped by Discord interface area
 scripts/build.mjs        Build, consistency check, and optional dev installation
-Ectoplasma.theme.css     Generated remote loader and editable configuration
-dist/Ectoplasma.css      Generated hosted stylesheet
+Ectoplasm.theme.css      Generated remote loader and editable configuration
+dist/Ectoplasm.css       Generated hosted stylesheet
 test/                   Build and watcher regression tests
 docs/                   Manual testing and release preparation
 .github/                CI and contribution templates

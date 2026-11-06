@@ -1,4 +1,4 @@
-# Contributing to Ectoplasma
+# Contributing to Ectoplasm
 
 Keep changes focused and preserve the existing appearance unless a visual change is the purpose of the proposal. Licensing has not yet been decided; contribution and reuse terms remain outstanding.
 
@@ -23,7 +23,7 @@ Generated CSS is tracked. Run the build and include the resulting loader and sty
 
 Use `npm run watch` for repository output only. For a separate local development theme, use `npm run watch -- --dev` on macOS or specify an existing folder with `--themes-dir`. See the [README](README.md#watch-and-local-testing) for exact commands and installation behavior.
 
-Disable other full themes while testing and enable only the intended Ectoplasma theme. Do not enable Ectoplasma and EctoplasmaDev together. The development theme must continue to be written in place; atomic replacement has caused BetterDiscord to unload it.
+Disable other full themes while testing and enable only the intended Ectoplasm theme. Do not enable Ectoplasm and EctoplasmDev together. The development theme must continue to be written in place; atomic replacement has caused BetterDiscord to unload it.
 
 Follow [docs/TESTING.md](docs/TESTING.md). For appearance-preserving work, compare a fresh compiled baseline and verify affected views in Discord. A build or CSS comparison does not establish runtime compatibility.
 
