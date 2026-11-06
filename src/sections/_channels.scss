@@ -25,8 +25,12 @@
     @include mixins.icon-hover-glow();
 }
 
-/* Read & Muted channel, icon, category and collapse arrow */
-#app-mount .container__2637a .link__2ea32 .name__2ea32, 
+/* Default channel names; unread, selected and hover colors follow below. */
+#app-mount .container__2637a .link__2ea32 .name__2ea32 {
+    color: var(--spook-secondary) !important;
+}
+
+/* Read & Muted channel icon, category and collapse arrow */
 #app-mount .container__2637a .link__2ea32 .icon__2ea32, 
 #app-mount .container__2637a .containerDefault__29444 .icon__29444 { 
     color: var(--spook-primary) !important;

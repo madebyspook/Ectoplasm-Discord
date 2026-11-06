@@ -1,5 +1,17 @@
 @use "../abstracts/mixins";
 
+/* Add to DM: scope the shared modal surface by its friend-list content. */
+#app-mount [role="dialog"] .container__8a031:has(.scrollerInner_cba592) {
+    @include mixins.glass-panel();
+    @include mixins.backdrop-blur();
+}
+
+/* DM message authors use primary text without the theme's username highlight. */
+#app-mount .content__5e434:has(.privateChannels_e6b769) .chatContent_f75fb0 .username_c19a55 {
+    color: var(--spook-primary) !important;
+    text-shadow: none;
+}
+
 /* DM list background */
 #app-mount .privateChannels_e6b769 {
     @include mixins.backdrop-blur();
