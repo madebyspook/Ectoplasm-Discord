@@ -2,7 +2,7 @@
 
 A BetterDiscord theme with a near-black palette, icy blue accents, translucent surfaces, and neon glow effects.
 
-[Download Ectoplasma.theme.css](https://madebyspook.github.io/Ectoplasma-Discord/Ectoplasma.theme.css) · [Report a problem](https://github.com/madebyspook/Ectoplasma-Discord/issues) · [Contributing](CONTRIBUTING.md)
+[Download Ectoplasma.theme.css](https://madebyspook.github.io/Ectoplasm-Discord/Ectoplasma.theme.css) · [Report a problem](https://github.com/madebyspook/Ectoplasm-Discord/issues) · [Contributing](CONTRIBUTING.md)
 
 ## Install
 
@@ -13,11 +13,11 @@ A BetterDiscord theme with a near-black palette, icy blue accents, translucent s
 
 Node.js, npm, and the repository source are only needed for development. `dist/Ectoplasma.css` is the hosted stylesheet, not the file to install.
 
-The installed theme loads its styling from [the hosted CSS](https://madebyspook.github.io/Ectoplasma-Discord/dist/Ectoplasma.css). It needs access to GitHub Pages; an import failure can leave Discord largely unthemed. Successful builds do not establish runtime compatibility. Tested environments and visual results must be recorded using the [manual checklist](docs/TESTING.md).
+The installed theme loads its styling from [the hosted CSS](https://madebyspook.github.io/Ectoplasm-Discord/dist/Ectoplasma.css). It needs access to GitHub Pages; an import failure can leave Discord largely unthemed. Successful builds do not establish runtime compatibility. Tested environments and visual results must be recorded using the [manual checklist](docs/TESTING.md).
 
 ## User configuration
 
-Download [Ectoplasma.theme.css](https://madebyspook.github.io/Ectoplasma-Discord/Ectoplasma.theme.css), place it in your BetterDiscord themes folder, and enable it. Open the downloaded file in a text editor or BetterDiscord's theme editor and find **USER CONFIGURATION** below the `@import` line. Keep that import in place.
+Download [Ectoplasma.theme.css](https://madebyspook.github.io/Ectoplasm-Discord/Ectoplasma.theme.css), place it in your BetterDiscord themes folder, and enable it. Open the downloaded file in a text editor or BetterDiscord's theme editor and find **USER CONFIGURATION** below the `@import` line. Keep that import in place.
 
 ### Accent color
 
@@ -75,7 +75,7 @@ If the loader itself changes, download `Ectoplasma.theme.css` again and replace 
 
 To uninstall, disable Ectoplasma and remove `Ectoplasma.theme.css` from the theme folder. Remove any Ectoplasma-specific Custom CSS overrides you added. If you used the development theme, disable and remove `EctoplasmaDev.theme.css` too.
 
-For blank or unexpected styling, check the filename, hosted CSS access, other enabled themes, your Custom CSS, and the wallpaper behavior above. Include relevant details in a [bug report](https://github.com/madebyspook/Ectoplasma-Discord/issues/new/choose).
+For blank or unexpected styling, check the filename, hosted CSS access, other enabled themes, your Custom CSS, and the wallpaper behavior above. Include relevant details in a [bug report](https://github.com/madebyspook/Ectoplasm-Discord/issues/new/choose).
 
 ## Development
 
