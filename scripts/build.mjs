@@ -7,8 +7,8 @@ import * as sass from 'sass';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const source = join(root, 'src');
-const loaderPath = join(root, 'Ectoplasma.theme.css');
-const cssPath = join(root, 'dist/Ectoplasma.css');
+const loaderPath = join(root, 'Ectoplasm.theme.css');
+const cssPath = join(root, 'dist/Ectoplasm.css');
 
 function readMetadata() {
   const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
@@ -21,19 +21,19 @@ function readMetadata() {
   }
 
   const metadata = {
-    name: 'Ectoplasma',
+    name: 'Ectoplasm',
     author: pkg.author,
     version: pkg.version,
     description: pkg.description,
     source: pkg.repository?.url?.replace(/\.git$/, ''),
-    updateUrl: new URL('Ectoplasma.theme.css', pkg.homepage).href,
+    updateUrl: new URL('Ectoplasm.theme.css', pkg.homepage).href,
   };
   for (const [field, value] of Object.entries(metadata)) {
     if (typeof value !== 'string' || !value.trim() || /[\r\n]|\*\//.test(value)) {
       throw new Error(`Theme metadata ${field} must be a non-empty single-line string.`);
     }
   }
-  return { metadata, stylesheetUrl: new URL('dist/Ectoplasma.css', pkg.homepage).href };
+  return { metadata, stylesheetUrl: new URL('dist/Ectoplasm.css', pkg.homepage).href };
 }
 
 function header(metadata) {
@@ -78,19 +78,19 @@ function build({ check, dev, themesDir }) {
 
   mkdirSync(join(root, 'dist'), { recursive: true });
   for (const [path, contents] of outputs) writeAtomic(path, contents);
-  console.log(`Built Ectoplasma.theme.css and dist/Ectoplasma.css (${metadata.version}).`);
+  console.log(`Built Ectoplasm.theme.css and dist/Ectoplasm.css (${metadata.version}).`);
 
   if (dev) {
     const developmentHeader = header({
-      name: 'EctoplasmaDev',
+      name: 'EctoplasmDev',
       author: metadata.author,
       version: metadata.version,
-      description: 'Local development build of Ectoplasma. Do not enable alongside Ectoplasma.',
+      description: 'Local development build of Ectoplasm. Do not enable alongside Ectoplasm.',
       source: metadata.source,
     });
     // Preserve the file in place: atomic replacement can cause BetterDiscord to unload it.
-    writeFileSync(join(themesDir, 'EctoplasmaDev.theme.css'), `${developmentHeader}${css}`);
-    console.log(`Updated ${join(themesDir, 'EctoplasmaDev.theme.css')}.`);
+    writeFileSync(join(themesDir, 'EctoplasmDev.theme.css'), `${developmentHeader}${css}`);
+    console.log(`Updated ${join(themesDir, 'EctoplasmDev.theme.css')}.`);
   }
 }
 

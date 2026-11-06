@@ -28,7 +28,7 @@ jobs:
       - run: npm run release:check
       - run: npm run build
       - name: Ensure rebuilding leaves generated files unchanged
-        run: git diff --exit-code -- Ectoplasma.theme.css dist/Ectoplasma.css
+        run: git diff --exit-code -- Ectoplasm.theme.css dist/Ectoplasm.css
       - name: Verify release tag matches package version
         if: github.ref_type == 'tag'
         shell: bash

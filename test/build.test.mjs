@@ -9,7 +9,7 @@ import test from 'node:test';
 const root = fileURLToPath(new URL('../', import.meta.url));
 
 async function withFixture(callback) {
-  const directory = mkdtempSync(join(tmpdir(), 'ectoplasma-build-test-'));
+  const directory = mkdtempSync(join(tmpdir(), 'ectoplasm-build-test-'));
   try {
     for (const path of ['src', 'scripts', 'package.json', 'package-lock.json']) {
       cpSync(join(root, path), join(directory, path), { recursive: true });
@@ -37,7 +37,7 @@ function contents(directory, path) {
 }
 
 function outputs(directory) {
-  return ['Ectoplasma.theme.css', 'dist/Ectoplasma.css'].map(path => ({
+  return ['Ectoplasm.theme.css', 'dist/Ectoplasm.css'].map(path => ({
     path,
     contents: contents(directory, path),
     modified: statSync(join(directory, path)).mtimeMs,
@@ -65,16 +65,16 @@ test('build emits matching metadata, preserves public URLs, and check never rewr
   await withFixture(directory => {
     assert.equal(run(directory).status, 0);
     const { version } = JSON.parse(contents(directory, 'package.json'));
-    const loader = contents(directory, 'Ectoplasma.theme.css');
-    const css = contents(directory, 'dist/Ectoplasma.css');
+    const loader = contents(directory, 'Ectoplasm.theme.css');
+    const css = contents(directory, 'dist/Ectoplasm.css');
     for (const file of [loader, css]) {
-      assert.ok(file.startsWith('/**\n * @name Ectoplasma\n'));
+      assert.ok(file.startsWith('/**\n * @name Ectoplasm\n'));
       assert.equal((file.match(/@name /g) || []).length, 1);
       assert.ok(file.includes(` * @version ${version}\n`));
       assert.ok(file.includes(' * @source https://github.com/madebyspook/Ectoplasm-Discord\n'));
     }
-    assert.match(loader, /@updateUrl https:\/\/madebyspook\.github\.io\/Ectoplasm-Discord\/Ectoplasma\.theme\.css/);
-    assert.match(loader, /@import url\("https:\/\/madebyspook\.github\.io\/Ectoplasm-Discord\/dist\/Ectoplasma\.css"\);/);
+    assert.match(loader, /@updateUrl https:\/\/madebyspook\.github\.io\/Ectoplasm-Discord\/Ectoplasm\.theme\.css/);
+    assert.match(loader, /@import url\("https:\/\/madebyspook\.github\.io\/Ectoplasm-Discord\/dist\/Ectoplasm\.css"\);/);
     const before = outputs(directory);
     assert.equal(run(directory, '--check').status, 0);
     assert.deepEqual(outputs(directory), before);
@@ -87,9 +87,9 @@ test('check detects either stale artifact and missing files without repairing th
   await withFixture(directory => {
     assert.equal(run(directory, '--check').status, 1);
     assert.equal(existsSync(join(directory, 'dist')), false);
-    assert.equal(existsSync(join(directory, 'Ectoplasma.theme.css')), false);
+    assert.equal(existsSync(join(directory, 'Ectoplasm.theme.css')), false);
     assert.equal(run(directory).status, 0);
-    for (const path of ['Ectoplasma.theme.css', 'dist/Ectoplasma.css']) {
+    for (const path of ['Ectoplasm.theme.css', 'dist/Ectoplasm.css']) {
       writeFileSync(join(directory, path), 'stale artifact');
       const result = run(directory, '--check');
       assert.equal(result.status, 1);
@@ -115,13 +115,13 @@ test('shared configuration and package metadata reach both artifacts without byp
     writeFileSync(join(directory, 'package.json'), JSON.stringify(pkg));
     writeFileSync(join(directory, 'package-lock.json'), JSON.stringify(lock));
     assert.equal(run(directory).status, 0);
-    for (const path of ['Ectoplasma.theme.css', 'dist/Ectoplasma.css']) {
+    for (const path of ['Ectoplasm.theme.css', 'dist/Ectoplasm.css']) {
       const file = contents(directory, path);
       assert.equal((file.match(/@name /g) || []).length, 1);
       assert.ok(file.includes('@version 9.8.7'));
       assert.ok(file.includes('--spook-accent: #ff00ff;'));
     }
-    const loader = contents(directory, 'Ectoplasma.theme.css');
+    const loader = contents(directory, 'Ectoplasm.theme.css');
     assert.equal((loader.match(/@import /g) || []).length, 1);
     assert.ok(loader.indexOf('@import') < loader.indexOf(':root'), 'User configuration must follow the imported defaults.');
     assert.equal(run(directory, '--check').status, 0);
@@ -184,7 +184,7 @@ test('watch recovers from errors, detects metadata and file changes, and writes 
   await withFixture(async directory => {
     const themes = join(directory, 'theme folder');
     mkdirSync(themes);
-    const installed = join(themes, 'EctoplasmaDev.theme.css');
+    const installed = join(themes, 'EctoplasmDev.theme.css');
     writeFileSync(installed, 'previous installed theme');
     const inode = statSync(installed).ino;
     const globalPath = join(directory, 'src/sections/_global.scss');
@@ -205,7 +205,7 @@ test('watch recovers from errors, detects metadata and file changes, and writes 
       assert.equal(statSync(installed).ino, inode, 'Development installation must retain its inode.');
       const dev = readFileSync(installed, 'utf8');
       assert.equal((dev.match(/@name /g) || []).length, 1);
-      assert.match(dev, /^\/\*\*\n \* @name EctoplasmaDev\n/);
+      assert.match(dev, /^\/\*\*\n \* @name EctoplasmDev\n/);
       assert.equal(dev.includes('@updateUrl'), false);
       assert.equal(dev.includes('@import'), false);
 

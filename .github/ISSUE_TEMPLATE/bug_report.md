@@ -18,7 +18,7 @@ Describe what happened and what you expected.
 
 ## Environment
 
-- Installed theme: Ectoplasma / EctoplasmaDev
+- Installed theme: Ectoplasm / EctoplasmDev
 - Loader version and, if known, source/deployed commit:
 - Discord version and channel:
 - BetterDiscord version:

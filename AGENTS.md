@@ -1,6 +1,6 @@
-# Ectoplasma — Agent Instructions
+# Ectoplasm — Agent Instructions
 
-Ectoplasma is a BetterDiscord theme with dark translucent surfaces, customizable accents, and neon glow effects. Preserve its existing appearance and functionality unless the user explicitly requests a visual change.
+Ectoplasm is a BetterDiscord theme with dark translucent surfaces, customizable accents, and neon glow effects. Preserve its existing appearance and functionality unless the user explicitly requests a visual change.
 
 ## Source and distribution
 
@@ -8,7 +8,7 @@ Ectoplasma is a BetterDiscord theme with dark translucent surfaces, customizable
 - `src/abstracts/` holds CSS custom properties and shared Sass mixins.
 - `src/sections/` groups styles by Discord interface area.
 - `package.json` supplies production metadata. Its version must match the package lockfile.
-- `scripts/build.mjs` generates the root `Ectoplasma.theme.css` remote loader and `dist/Ectoplasma.css` hosted stylesheet. Never edit either CSS output manually.
+- `scripts/build.mjs` generates the root `Ectoplasm.theme.css` remote loader and `dist/Ectoplasm.css` hosted stylesheet. Never edit either CSS output manually.
 - Preserve the remote-loader architecture, public filenames, and existing GitHub Pages URLs. A release tag does not freeze the remote stylesheet.
 
 ## Styling boundaries
@@ -26,7 +26,7 @@ Ectoplasma is a BetterDiscord theme with dark translucent surfaces, customizable
 - Compare compiled styling with a fresh baseline for changes that must preserve appearance. Ignore only metadata/comment differences; preserve selectors, declarations, and cascade order.
 - `npm run check` is read-only. It must detect missing/stale generated outputs and version mismatches.
 - Build/watch without `--dev` must not install files outside the repository.
-- The installed `EctoplasmaDev.theme.css` must be written **in place**, never with an atomic rename. BetterDiscord can unload atomically replaced development themes. Repository outputs may use atomic replacement.
+- The installed `EctoplasmDev.theme.css` must be written **in place**, never with an atomic rename. BetterDiscord can unload atomically replaced development themes. Repository outputs may use atomic replacement.
 - Use temporary fixtures for tooling tests, never the user's real BetterDiscord folder.
 - Follow `docs/TESTING.md` for manual checks. Do not claim runtime compatibility or visual verification without actual Discord testing.
 
