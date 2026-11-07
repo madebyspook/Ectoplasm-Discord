@@ -1,19 +1,20 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* Server list: use global background without additional tint */
-#app-mount .guilds_c48ade,
-#app-mount .wrapper_ef3116,
-#app-mount .sidebar__5e434::after /* Server list bottom fix */ {
+#app-mount #{classes.$server-list},
+#app-mount #{classes.$guilds-wrapper},
+#app-mount #{classes.$channels-sidebar}::after /* Server list bottom fix */ {
     background: transparent !important;
 }
 
 /* Server list unread and selected indicators */
-#app-mount .wrapper__58105 .item__58105.visible__58105 {
+#app-mount #{classes.$server-pill-wrapper} #{classes.$guild-pill-item}#{classes.$server-pill-visible} {
     background-color: var(--spook-accent) !important;
     filter: var(--spook-glow-filter-strong);
 }
 
 /* Server Notification */
-#app-mount .lowerBadge_cc5dd2 [class*="numberBadge"] {
+#app-mount #{classes.$guild-badge-lower} [class*="numberBadge"] {
     @include mixins.notification-badge();
 }

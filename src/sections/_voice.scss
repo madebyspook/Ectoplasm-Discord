@@ -1,36 +1,37 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* BackgroundManager wallpaper */
-#app-mount .wrapper_cb9592 .root_bfe55a::before {
+#app-mount #{classes.$call-wrapper} #{classes.$call-root}::before {
     @include mixins.wallpaper-layer();
 }
 
 /* Voice call background */
-#app-mount .wrapper_cb9592 .root_bfe55a {
+#app-mount #{classes.$call-wrapper} #{classes.$call-root} {
     @include mixins.wallpaper-host();
 }
 
 /* Voice channel participant names (not speaking) */
-#app-mount .username__07f91 {
+#app-mount #{classes.$voice-user-name} {
     color: var(--spook-secondary) !important;
 }    
 
 /* speaking character */    
-#app-mount .usernameSpeaking__07f91 {
+#app-mount #{classes.$voice-user-name-speaking} {
     @include mixins.glowing-text();
     filter: var(--spook-glow-filter-weak);
 }
 
 /* Collapsible voice-channel text chat */
-#app-mount .container__01ae2.floating__01ae2 {
+#app-mount #{classes.$thread-container}#{classes.$thread-container-floating} {
     background: var(--spook-glass-dark) !important;
     @include mixins.backdrop-blur();
 }
 
 /* Remove opaque backgrounds from nested voice-chat surfaces */
-#app-mount .container__01ae2.floating__01ae2 .chat_ee72fa,
-#app-mount .container__01ae2.floating__01ae2 .chatContent_f75fb0,
-#app-mount .container__01ae2.floating__01ae2 .messagesWrapper__36d07,
-#app-mount .container__01ae2.floating__01ae2 .scroller__36d07 {
+#app-mount #{classes.$thread-container}#{classes.$thread-container-floating} #{classes.$voice-text-chat},
+#app-mount #{classes.$thread-container}#{classes.$thread-container-floating} #{classes.$chat-content},
+#app-mount #{classes.$thread-container}#{classes.$thread-container-floating} #{classes.$messages},
+#app-mount #{classes.$thread-container}#{classes.$thread-container-floating} #{classes.$messages-scroller} {
     background: transparent !important;
 }

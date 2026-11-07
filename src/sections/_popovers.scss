@@ -1,52 +1,53 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* Glass styling */
-#app-mount .popover_f84418 {
+#app-mount #{classes.$message-popover} {
     @include mixins.glass-panel();
     @include mixins.backdrop-blur();
 }
 
 /* Glass styling */
-#app-mount .browser_d98031 {
+#app-mount #{classes.$thread-browser} {
     @include mixins.glass-panel();
     @include mixins.backdrop-blur();
 }
 
 /* Glass styling */
-#app-mount .popout__76f04 {
+#app-mount #{classes.$channel-thread-popout} {
     @include mixins.glass-panel();
 }
 
 /* Forum channel hover preview: retain its existing glass and add blur. */
-#app-mount .popout__76f04.popover_d6f39b {
+#app-mount #{classes.$channel-thread-popout}#{classes.$voice-call-invite-popover} {
     --spook-muted: var(--spook-secondary);
     @include mixins.backdrop-blur();
 }
 
 /* Forum preview names and labels. */
-#app-mount .popout__76f04.popover_d6f39b .label__76f04,
-#app-mount .popout__76f04.popover_d6f39b .name__76f04 {
+#app-mount #{classes.$channel-thread-popout}#{classes.$voice-call-invite-popover} #{classes.$popovers-label},
+#app-mount #{classes.$channel-thread-popout}#{classes.$voice-call-invite-popover} #{classes.$popovers-name} {
     color: var(--spook-primary) !important;
 }
 
 /* Forum preview title, descriptions and timestamps. */
-#app-mount .popout__76f04.popover_d6f39b .title__76f04,
-#app-mount .popout__76f04.popover_d6f39b .label__76f04 > div:not(.name__76f04) {
+#app-mount #{classes.$channel-thread-popout}#{classes.$voice-call-invite-popover} #{classes.$channel-thread-popout-title},
+#app-mount #{classes.$channel-thread-popout}#{classes.$voice-call-invite-popover} #{classes.$popovers-label} > div:not(#{classes.$popovers-name}) {
     color: var(--spook-muted) !important;
 }
 
 /* Glass styling */
-#app-mount .header_d9c882 {
+#app-mount #{classes.$threads-popout-header} {
     @include mixins.glass-panel();
 }
 
 /* Context menu */
-#app-mount .menu_c1e9c4 {
+#app-mount #{classes.$menu-popout} {
     background: transparent !important;
 }
 
 /* Context menu glass */
-#app-mount .menu_c1e9c4::before {
+#app-mount #{classes.$menu-popout}::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -56,53 +57,53 @@
 }
 
 /* Tooltips */
-#app-mount .tooltip_fa450d, 
+#app-mount #{classes.$tooltip-v2},
 #app-mount .bd-tooltip,
-#app-mount .reactionTooltip_bbcccb {
+#app-mount #{classes.$reaction-tooltip} {
     @include mixins.glass-panel();
     @include mixins.backdrop-blur();
 }
 /* Tooltip pointer and triangle */
-#app-mount .caretIcon_fa450d .caretFill_fa450d, 
+#app-mount #{classes.$tooltip-v2-caret-icon} #{classes.$tooltip-v2-caret-fill},
 #app-mount .bd-tooltip-pointer {
     fill: transparent !important;
 }
 
 /* Tooltip text */
-.tooltip_fa450d,
-.tooltip_fa450d *,
+#{classes.$tooltip-v2},
+#{classes.$tooltip-v2} *,
 .bd-tooltip,
 .bd-tooltip *,
-#app-mount .emojiTooltipText__040f0.text-sm\/medium_cf4812 {
+#app-mount #{classes.$popovers-emoji-tooltip-text}#{classes.$text-sm-medium} {
     color: var(--spook-highlight) !important;
 }
 /* Emoji tooltip description */
-#app-mount .emojiTooltipText__040f0.text-xs\/normal_cf4812 {
+#app-mount #{classes.$popovers-emoji-tooltip-text}#{classes.$text-xs-normal} {
     color: var(--spook-secondary) !important;
 }
 
 
 
 /* Context menu icons */
-#app-mount .menu_c1e9c4 .item_c1e9c4 .icon_c1e9c4 {
+#app-mount #{classes.$menu-popout} #{classes.$menu-popout-item} #{classes.$menu-popout-icon} {
     color: var(--spook-primary) !important;
     filter: none !important;
 }
 
 /* Context menu icons hover */
-#app-mount .menu_c1e9c4 .item_c1e9c4:hover .icon_c1e9c4,
-#app-mount .menu_c1e9c4 .item_c1e9c4:hover .icon_c1e9c4 path[fill="currentColor"] {
+#app-mount #{classes.$menu-popout} #{classes.$menu-popout-item}:hover #{classes.$menu-popout-icon},
+#app-mount #{classes.$menu-popout} #{classes.$menu-popout-item}:hover #{classes.$menu-popout-icon} path[fill="currentColor"] {
     @include mixins.icon-hover-glow($filter: var(--spook-glow-filter-strong) !important);
     fill: var(--spook-neon) !important;
 }
 
 /* Context menu labels */
-#app-mount .menu_c1e9c4 .label_c1e9c4 {
+#app-mount #{classes.$menu-popout} #{classes.$menu-popout-label} {
     color: var(--spook-primary) !important;
 }
 
 /* Hovered context menu labels */
-#app-mount .menu_c1e9c4 .item_c1e9c4:hover .label_c1e9c4 {
+#app-mount #{classes.$menu-popout} #{classes.$menu-popout-item}:hover #{classes.$menu-popout-label} {
     @include mixins.glowing-text();
     filter: var(--spook-glow-filter-weak);
 }

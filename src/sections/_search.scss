@@ -1,13 +1,14 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* Search results use the same dark glass as the channel and member lists. */
-#app-mount .searchResultsWrap_a98f3b {
+#app-mount #{classes.$search-results-wrap} {
     background: var(--spook-glass-dark) !important;
     @include mixins.backdrop-blur();
 }
 
 /* Clear result surfaces without changing controls, embeds or code blocks. */
-#app-mount .searchResultsWrap_a98f3b .searchResult__80bf8 {
+#app-mount #{classes.$search-results-wrap} #{classes.$search-result} {
     background: transparent !important;
 }
 
@@ -17,7 +18,7 @@
 }
 
 /* Search suggestions dropdown: outer popout and scrollable inner layer */
-#app-mount .container__16eb0 {
+#app-mount #{classes.$search-popout} {
     @include mixins.glass-panel();
     @include mixins.backdrop-blur();
 }
@@ -25,45 +26,45 @@
 
 
 /* Search group headers */
-#app-mount .groupHeader__971b5 [data-text-variant="text-xs/semibold"] { 
+#app-mount #{classes.$search-popout-group-header} #{classes.$text-xs-semibold} {
     color: var(--spook-highlight) !important;
 }
 
 /* Search Icon, Text, In: text */
-#app-mount .itemIcon__971b5, 
-#app-mount .nonText__971b5, 
-#app-mount .item__971b5 > div > [data-text-variant="text-sm/medium"] {
+#app-mount #{classes.$search-item-icon},
+#app-mount #{classes.$search-non-text},
+#app-mount #{classes.$search-popout-item} > div > #{classes.$text-sm-medium} {
     color: var(--spook-primary) !important;
 }
 
 /* Search history clear button */
-#app-mount .clearSearchHistory__971b5 .clearSearchHistoryIcon__971b5 {
+#app-mount #{classes.$search-clear-search-history} #{classes.$search-clear-search-history-icon} {
     color: var(--spook-primary) !important;
 }
-#app-mount .clearSearchHistory__971b5:hover .clearSearchHistoryIcon__971b5 {
+#app-mount #{classes.$search-clear-search-history}:hover #{classes.$search-clear-search-history-icon} {
     @include mixins.icon-hover-glow();
 }
 
 /* Search filter sublabels: in:, has:, mentions: */
-#app-mount .filterSublabelTextContainer__971b5 .text-sm\/semibold_cf4812,
-#app-mount .filterSublabelTextContainer__971b5 .text-sm\/medium_cf4812 {
+#app-mount #{classes.$search-filter-sublabel-text-container} #{classes.$text-sm-semibold},
+#app-mount #{classes.$search-filter-sublabel-text-container} #{classes.$text-sm-medium} {
     color: var(--spook-highlight) !important;
 }
 
 /* Search row hover */
-#app-mount .itemContainer__971b5:hover,
-#app-mount .itemContainer__971b5[aria-selected="true"] {
+#app-mount #{classes.$search-popout-item-container}:hover,
+#app-mount #{classes.$search-popout-item-container}[aria-selected="true"] {
     background: var(--spook-background-select) !important;
 }
 
 /* Search hover */
-#app-mount .itemContainer__971b5:hover .autocompletePillContainer__971b5 .nonText__971b5,
-#app-mount .itemContainer__971b5:hover .itemIcon__971b5,
-#app-mount .itemContainer__971b5:hover [data-text-variant],
-#app-mount .itemContainer__971b5:hover .nonText__971b5,
-#app-mount .itemContainer__971b5[aria-selected="true"] .itemIcon__971b5,
-#app-mount .itemContainer__971b5[aria-selected="true"] [data-text-variant],
-#app-mount .itemContainer__971b5[aria-selected="true"] .nonText__971b5 {
+#app-mount #{classes.$search-popout-item-container}:hover #{classes.$search-autocomplete-pill-container} #{classes.$search-non-text},
+#app-mount #{classes.$search-popout-item-container}:hover #{classes.$search-item-icon},
+#app-mount #{classes.$search-popout-item-container}:hover [data-text-variant],
+#app-mount #{classes.$search-popout-item-container}:hover #{classes.$search-non-text},
+#app-mount #{classes.$search-popout-item-container}[aria-selected="true"] #{classes.$search-item-icon},
+#app-mount #{classes.$search-popout-item-container}[aria-selected="true"] [data-text-variant],
+#app-mount #{classes.$search-popout-item-container}[aria-selected="true"] #{classes.$search-non-text} {
     @include mixins.glowing-text();
     filter: var(--spook-glow-filter-strong);
 }

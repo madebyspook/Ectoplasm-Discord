@@ -1,54 +1,55 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* BackgroundManager wallpaper */
-#app-mount .container_f369db::before {
+#app-mount #{classes.$forum-container}::before {
     @include mixins.wallpaper-layer();
 }
 
 /* Forum wallpaper container */
-#app-mount .container_f369db {
+#app-mount #{classes.$forum-container} {
     @include mixins.wallpaper-host();
 }
 
 
 
 /* Forum tag filter pills */
-#app-mount .tagsContainer_f369db .sortDropdown_f369db,
-#app-mount .tagsContainer_f369db .tagsButton_f369db,
-#app-mount .tagsContainer_f369db .pill_a2c9e8 {
+#app-mount #{classes.$forum-tags-container} #{classes.$forum-sort-dropdown},
+#app-mount #{classes.$forum-tags-container} #{classes.$forum-tags-button},
+#app-mount #{classes.$forum-tags-container} #{classes.$post-pill} {
     @include mixins.glass-panel();
     @include mixins.backdrop-blur();
 }
 
 /* Forum sort and all-tags labels/icons */
-#app-mount .tagsContainer_f369db .sortDropdown_f369db *,
-#app-mount .tagsContainer_f369db .tagsButton_f369db *,
-#app-mount .tagsContainer_f369db .pill_a2c9e8 {
+#app-mount #{classes.$forum-tags-container} #{classes.$forum-sort-dropdown} *,
+#app-mount #{classes.$forum-tags-container} #{classes.$forum-tags-button} *,
+#app-mount #{classes.$forum-tags-container} #{classes.$post-pill} {
     color: var(--spook-primary) !important;
 }
 /* Forum sort and all-tags labels/icons Hover */
-#app-mount .tagsContainer_f369db .sortDropdown_f369db:hover *,
-#app-mount .tagsContainer_f369db .tagsButton_f369db:hover *,
-#app-mount .tagsContainer_f369db .pill_a2c9e8:hover {
+#app-mount #{classes.$forum-tags-container} #{classes.$forum-sort-dropdown}:hover *,
+#app-mount #{classes.$forum-tags-container} #{classes.$forum-tags-button}:hover *,
+#app-mount #{classes.$forum-tags-container} #{classes.$post-pill}:hover {
     @include mixins.glowing-text();
 }
 
 /* New post count */
-#app-mount .newPostCount__599fa {
+#app-mount #{classes.$channel-new-post-count} {
     @include mixins.glowing-text($color: var(--spook-accent));
 }
 
 /* Forum New Post button */
-#app-mount .container_f369db button.primary_a22cb0 {
+#app-mount #{classes.$forum-container} button#{classes.$button-v2-primary} {
     background: var(--spook-accent) !important;
 }
 /* Forum New Post button hover */
-#app-mount .container_f369db button.primary_a22cb0:hover {
+#app-mount #{classes.$forum-container} button#{classes.$button-v2-primary}:hover {
     box-shadow: var(--spook-glow-neon-strong) !important;
 }
 
 /* Forum new post shortcut row */
-#app-mount .matchingPostsRow_f369db {
+#app-mount #{classes.$forum-header-matching-posts-row} {
     background: transparent !important;
     border: transparent !important;
 }
@@ -56,8 +57,8 @@
 
 
 /* Forum search icon & text */
-#app-mount .prefixElement_d9be46 .icon__0c4c4,
-#app-mount .form_d9be46 textarea.title_d9be46::placeholder {
+#app-mount #{classes.$new-post-prefix-element} #{classes.$search-icon},
+#app-mount #{classes.$new-post-form} textarea#{classes.$new-post-title}::placeholder {
     color: var(--spook-secondary) !important;
 }
 
@@ -81,57 +82,57 @@
 }
 
 /* Forum post card tag label */
-#app-mount .pill_a2c9e8 .lineClamp1__4bd52.text-xs\/semibold_cf4812 {
+#app-mount #{classes.$post-pill} #{classes.$text-single-line}#{classes.$text-xs-semibold} {
     color: var(--spook-highlight) !important;
 }
 
 /* Forum title text */
-#app-mount .postTitleText_faa96b {
+#app-mount #{classes.$forums-post-title-text} {
     color: var(--spook-highlight) !important;
 }
 
 /* Forum text */
-#app-mount .messageFocusBlock_faa96b [data-text-variant] {
+#app-mount #{classes.$forums-message-focus-block} [data-text-variant] {
     color: var(--spook-primary) !important;
 }
 
 /* Forum post details: reply count, separator, date */
-#app-mount .footer_faa96b .messageCountIcon_faa96b,
-#app-mount .footer_faa96b .messageCountText_faa96b,
-#app-mount .footer_faa96b .bullet_faa96b,
-#app-mount .footer_faa96b .text-sm\/normal_cf4812 {
+#app-mount #{classes.$forums-footer} #{classes.$forums-message-count-icon},
+#app-mount #{classes.$forums-footer} #{classes.$forums-message-count-text},
+#app-mount #{classes.$forums-footer} #{classes.$forums-bullet},
+#app-mount #{classes.$forums-footer} #{classes.$text-sm-normal} {
     color: var(--spook-secondary) !important;
 }
 
 
 
 /* Forum post header (top and scrolled): Background */
-#app-mount .container__34c2c,
-#app-mount .container__34c2c.header__34c2c {
+#app-mount #{classes.$post-thread-button-container},
+#app-mount #{classes.$post-thread-button-container}#{classes.$post-thread-button-header} {
     @include mixins.glass-panel();
     @include mixins.backdrop-blur();
 }
 
 /* Forum post Header: Reaction icon, text, following text, checkmark & link buttons, reaction count */
-#app-mount .reactionBtn_f8896c .icon_f8896c,
-#app-mount .container__34c2c .reactionBtn_f8896c.addReactButton__34c2c,
-#app-mount .buttons__34c2c .lineClamp1__4bd52,
-#app-mount .buttons__34c2c .icon_a22cb0,
-#app-mount .reactionCount_f8896c {
+#app-mount #{classes.$forums-reaction-btn} #{classes.$forum-reaction-icon},
+#app-mount #{classes.$post-thread-button-container} #{classes.$forums-reaction-btn}#{classes.$post-thread-add-react-button},
+#app-mount #{classes.$post-thread-buttons} #{classes.$text-single-line},
+#app-mount #{classes.$post-thread-buttons} #{classes.$button-icon},
+#app-mount #{classes.$forums-reaction-count} {
     color: var(--spook-primary) !important;
 }
 
 /* Forum post Header: Hover Text */
-#app-mount .reactionBtn_f8896c:hover .icon_f8896c,
-#app-mount .container__34c2c .reactionBtn_f8896c.addReactButton__34c2c:hover,
-#app-mount .reaction_f8896c:hover .reactionCount_f8896c {
+#app-mount #{classes.$forums-reaction-btn}:hover #{classes.$forum-reaction-icon},
+#app-mount #{classes.$post-thread-button-container} #{classes.$forums-reaction-btn}#{classes.$post-thread-add-react-button}:hover,
+#app-mount #{classes.$forums-reaction}:hover #{classes.$forums-reaction-count} {
     color: var(--spook-neon) !important;
     text-shadow: var(--spook-glow-neon-strong) !important;
 }
 /* Forum post Header: Hover Icons */
-#app-mount .buttons__34c2c .button_a22cb0.secondary_a22cb0:hover,
-#app-mount .buttons__34c2c .button_a22cb0.secondary_a22cb0:hover svg,
-#app-mount .buttons__34c2c .button_a22cb0.secondary_a22cb0:hover [class*="lineClamp"],
-#app-mount .container__34c2c .reactionBtn_f8896c.addReactButton__34c2c:hover .icon_f8896c {
+#app-mount #{classes.$post-thread-buttons} #{classes.$button-v2}#{classes.$button-v2-secondary}:hover,
+#app-mount #{classes.$post-thread-buttons} #{classes.$button-v2}#{classes.$button-v2-secondary}:hover svg,
+#app-mount #{classes.$post-thread-buttons} #{classes.$button-v2}#{classes.$button-v2-secondary}:hover [class*="lineClamp"],
+#app-mount #{classes.$post-thread-button-container} #{classes.$forums-reaction-btn}#{classes.$post-thread-add-react-button}:hover #{classes.$forum-reaction-icon} {
     @include mixins.icon-hover-glow();
 }

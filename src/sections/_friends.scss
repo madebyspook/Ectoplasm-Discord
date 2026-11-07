@@ -1,85 +1,86 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* Friends wallpaper container */
-#app-mount main.container__133bf {
+#app-mount main#{classes.$friends} {
     @include mixins.wallpaper-host();
 }
 
 /* Friends search field */
-#app-mount .searchBar__5ec2f .container__75098 {
+#app-mount #{classes.$friends-search-bar} #{classes.$input-surface} {
     @include mixins.glass-panel();
 }
 
 /* BackgroundManager wallpaper behind Friends page */
-#app-mount main.container__133bf::before {
+#app-mount main#{classes.$friends}::before {
     @include mixins.wallpaper-layer();
 }
 
 /* Transparent Friends inner surfaces */
-#app-mount .tabBody__133bf,
-#app-mount .peopleColumn__133bf,
-#app-mount .peopleList__5ec2f,
-#app-mount .peopleListItem_cc6179 {
+#app-mount #{classes.$friends-tab-body},
+#app-mount #{classes.$friends-column},
+#app-mount #{classes.$friends-list},
+#app-mount #{classes.$friends-item} {
     background: transparent !important;
 }
 
 /* Friends list section heading */
-#app-mount .peopleColumn__133bf .sectionTitle__5ec2f h2 {
+#app-mount #{classes.$friends-column} #{classes.$friends-section-title} h2 {
     color: var(--spook-highlight) !important;
 }
 
 /* Friend names */
-#app-mount .username__0a06e {
+#app-mount #{classes.$friends-username} {
     color: var(--spook-primary);
 }
 
 /* Friend online status & game activity */
-#app-mount .subtext__0a06e,
-#app-mount .peopleListItem_cc6179 .statusText__19b6d {
+#app-mount #{classes.$friends-subtext},
+#app-mount #{classes.$friends-item} #{classes.$friend-status} {
     color: var(--spook-secondary);
 }
 
 /* Friend action buttons */
-#app-mount .peopleListItem_cc6179 .actionButton_f8fa06 {
+#app-mount #{classes.$friends-item} #{classes.$friend-action-button} {
     color: var(--spook-primary);
     background: transparent !important;
 }
 
 /* Friend row hover */
-#app-mount .peopleListItem_cc6179:hover {
+#app-mount #{classes.$friends-item}:hover {
     @include mixins.selection-highlight();
     filter: var(--spook-glow-filter-weak);
 }
 
 /* Friend action icon hover and highlight */
-#app-mount .peopleListItem_cc6179 .actionButton_f8fa06:hover .icon_f8fa06,
-#app-mount .peopleListItem_cc6179 .actionButton_f8fa06.highlight_f8fa06 .icon_f8fa06 {
+#app-mount #{classes.$friends-item} #{classes.$friend-action-button}:hover #{classes.$friend-action-button-icon},
+#app-mount #{classes.$friends-item} #{classes.$friend-action-button}#{classes.$friend-action-button-highlight} #{classes.$friend-action-button-icon} {
     @include mixins.icon-hover-glow();
 }
 
 /* Username revealed on hover */
-#app-mount .peopleListItem_cc6179:hover .discriminator__0a06e {
+#app-mount #{classes.$friends-item}:hover #{classes.$friend-discriminator} {
     color: var(--spook-primary) !important;
 }
 
 /* Friends search placeholder and icon */
-#app-mount .searchBar__5ec2f .input__75098::placeholder,
-#app-mount .searchBar__5ec2f .icon__75098 svg path {
+#app-mount #{classes.$friends-search-bar} #{classes.$input}::placeholder,
+#app-mount #{classes.$friends-search-bar} #{classes.$input-icon} svg path {
     color: var(--spook-secondary) !important;
 }
 
 /* Friend request notification badges: sidebar Friends link and Pending tab */
-#app-mount .friendsButtonContainer_e6b769 .numberBadge__463b7,
-#app-mount [data-tab-id="PENDING"] .numberBadge__463b7 {
+#app-mount #{classes.$friends-button-container} #{classes.$number-badge},
+#app-mount [data-tab-id="PENDING"] #{classes.$number-badge} {
     @include mixins.notification-badge();
 }
 
 /* Friends header tabs */
-#app-mount .tabBar__133bf .item__133bf .itemText_aa8da2 {
+#app-mount #{classes.$friends-tab-bar} #{classes.$friends-tab-item} #{classes.$friends-item-text} {
     color: var(--spook-primary) !important;
 }
 
 /* Friends header tab hover */
-#app-mount .tabBar__133bf .item__133bf:hover .itemText_aa8da2 {
+#app-mount #{classes.$friends-tab-bar} #{classes.$friends-tab-item}:hover #{classes.$friends-item-text} {
     @include mixins.glowing-text();
 }
