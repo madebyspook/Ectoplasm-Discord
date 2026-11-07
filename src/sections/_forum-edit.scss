@@ -1,87 +1,88 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* Forum edit wallpaper */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0)::before {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category})::before {
     @include mixins.wallpaper-layer();
 }
 
 /* Forum edit main container */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) {
     @include mixins.wallpaper-host();
 }
 
 /* Forum edit sidebar glass */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .sidebarRegionScroller__23e6b {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$settings-sidebar-scroller} {
     background: var(--spook-glass-dark) !important;
     @include mixins.backdrop-blur();
 }
 
 /* Forum edit content tint without a backdrop boundary */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .contentRegionScroller__23e6b {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$settings-content-scroller} {
     background: var(--spook-glass-dark) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
 
 /* Transparent outer surfaces */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .sidebarRegion__23e6b,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .contentRegion__23e6b {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$settings-sidebar-region},
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$settings-content-region} {
     background: transparent !important;
 }
 
 
 /* Sidebar heading and main section headings */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .headerText_aa8da2,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .contentColumn__23e6b h2 {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$forum-edit-header-text},
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$settings-content-column} h2 {
     color: var(--spook-highlight) !important;
 }
 
 /* Channel name, form labels and navigation text */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .category__3ddc0,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .label__5a838,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .item_aa8da2:not(.destructive_aa8da2) {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$channel-settings-category},
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$forum-edit-label},
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$settings-tab}:not(#{classes.$forum-edit-destructive}) {
     color: var(--spook-primary) !important;
 }
 
 /* Form descriptions, helper text and ESC label */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .description__5a838,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .helperTextContainer__5a838 [class*="text-xs"],
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .keybind_c2b141 {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$forum-edit-description},
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$forum-edit-helper-text-container} [class*="text-xs"],
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$settings-close-button-keybind} {
     color: var(--spook-secondary) !important;
 }
 
 /* Selected and hovered navigation items */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .item_aa8da2.selected_aa8da2,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .item_aa8da2.themed_aa8da2:hover {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$settings-tab}#{classes.$settings-tab-selected},
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$settings-tab}#{classes.$settings-tab-themed}:hover {
     background: var(--spook-background-select) !important;
     @include mixins.glowing-text();
 }
 
 
 /* Post title input and dropdown glass */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .wrapper__72c38.container__75098,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .wrapper__72c38.selectField__0edde,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .selectDropdown__0edde {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$select-menu-wrapper-with-bg}#{classes.$input-surface},
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$select-menu-wrapper-with-bg}#{classes.$select-field},
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$select-dropdown} {
     @include mixins.glass-panel();
     @include mixins.backdrop-blur();
 }
 
 /* Input and dropdown text */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .input__75098,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .singleSelectOption__0edde,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .listBoxItemContent__2e223 {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$input},
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$forum-edit-single-select-option},
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$select-dropdown-list-box-item-content} {
     color: var(--spook-primary) !important;
 }
 
 /* Input placeholder, dropdown arrow and close button */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .input__75098::placeholder,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .chevronIcon__0edde,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .closeButton_c2b141 {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$input}::placeholder,
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$forum-edit-chevron-icon},
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$settings-close-button} {
     color: var(--spook-secondary) !important;
 }
 
 /* Dropdown arrow and close button hover */
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .chevronButton__0edde:hover .chevronIcon__0edde,
-#app-mount .standardSidebarView__23e6b:has(.category__3ddc0) .closeButton_c2b141:hover {
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$select-field-chevron-button}:hover #{classes.$forum-edit-chevron-icon},
+#app-mount #{classes.$standard-sidebar-view}:has(#{classes.$channel-settings-category}) #{classes.$settings-close-button}:hover {
     @include mixins.icon-hover-glow();
 }

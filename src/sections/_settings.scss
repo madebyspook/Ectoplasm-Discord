@@ -1,52 +1,53 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* Glass styling */
-#app-mount .contentHeader_e9e3ed, /* Header */
+#app-mount #{classes.$settings-v2-content-header}, /* Header */
 #app-mount .bd-store-card,
-#app-mount .primaryKeybindGroup_f82450 { /* Keyboard shortcuts  */
+#app-mount #{classes.$settings-keybind-group} { /* Keyboard shortcuts  */
     @include mixins.glass-panel();
 }
 
 /* Settings backgrounds */
-#app-mount .modal_e44912:has(.container_abd9a8),
+#app-mount #{classes.$settings-modal}:has(#{classes.$settings-layout}),
 #app-mount [data-layer="CHANNEL_SETTINGS"] {
     background: var(--spook-glass-dark) !important;
     @include mixins.backdrop-blur();
 }
 
 /* Transparent settings inner surfaces */
-#app-mount .modal_e44912 .fixedContent__409aa::after, /* Remove settings navigation scroll fade */
-#app-mount .scrim__40128, /* Remove modal dimming */
-#app-mount .modal_e44912:has(.container_abd9a8) .modalContentInner_e44912,
-#app-mount .modal_e44912:has(.container_abd9a8) .sidebar__409aa, /* Settings side panel */
-#app-mount .modal_e44912:has(.container_abd9a8) .content_e9e3ed { /* Sttings main panel */
+#app-mount #{classes.$settings-modal} #{classes.$settings-v2-sidebar-fixed-content}::after, /* Remove settings navigation scroll fade */
+#app-mount #{classes.$scrim}, /* Remove modal dimming */
+#app-mount #{classes.$settings-modal}:has(#{classes.$settings-layout}) #{classes.$settings-modal-content-inner},
+#app-mount #{classes.$settings-modal}:has(#{classes.$settings-layout}) #{classes.$settings-v2-sidebar}, /* Settings side panel */
+#app-mount #{classes.$settings-modal}:has(#{classes.$settings-layout}) #{classes.$settings-v2-content} { /* Sttings main panel */
     background: transparent !important;
 }
 
 /* Category */
-#app-mount .modal_e44912 .label__409aa,
-#app-mount .tabBar__133bf .item__133bf.selected_a8da2 {
+#app-mount #{classes.$settings-modal} #{classes.$settings-v2-sidebar-label},
+#app-mount #{classes.$friends-tab-bar} #{classes.$friends-tab-item}#{classes.$settings-tab-selected} {
     color: var(--spook-highlight) !important;
 }
 
 /* muted settings text */
-#app-mount .tabBar__133bf .item__133bf,
-#app-mount .modal_e44912 .item_caf372 [data-text-variant],
-#app-mount .modal_e44912 .item_e4d939 [data-text-variant],
-#app-mount .modal_e44912 [data-text-variant="text-sm/normal"] {
+#app-mount #{classes.$friends-tab-bar} #{classes.$friends-tab-item},
+#app-mount #{classes.$settings-modal} #{classes.$item-v2} [data-text-variant],
+#app-mount #{classes.$settings-modal} #{classes.$settings-submenu-item} [data-text-variant],
+#app-mount #{classes.$settings-modal} #{classes.$text-sm-normal} {
     color: var(--spook-secondary) !important;
 }
 
 /* secondary settings text */
-#app-mount .modal_e44912 .button_a22cb0 [data-text-variant],
-#app-mount .modal_e44912 .icon_caf372,
-#app-mount .modal_e44912 .item_caf372 .text-md\/medium_cf4812,
-#app-mount .modal_e44912 .item_e4d939 .text-md\/normal_cf4812,
-#app-mount .modal_e44912 .baseControlItem_dbfbe0 svg[fill="none"] {
+#app-mount #{classes.$settings-modal} #{classes.$button-v2} [data-text-variant],
+#app-mount #{classes.$settings-modal} #{classes.$item-v2-icon},
+#app-mount #{classes.$settings-modal} #{classes.$item-v2} #{classes.$text-md-medium},
+#app-mount #{classes.$settings-modal} #{classes.$settings-submenu-item} #{classes.$text-md-normal},
+#app-mount #{classes.$settings-modal} #{classes.$settings-control} svg[fill="none"] {
     color: var(--spook-primary) !important;
 }
 
 /* Settings navigation arrows */
-#app-mount .modal_e44912 .baseControlItem_dbfbe0 svg[fill="none"] {
+#app-mount #{classes.$settings-modal} #{classes.$settings-control} svg[fill="none"] {
     stroke: var(--spook-secondary) !important;
 }

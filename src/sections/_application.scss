@@ -1,14 +1,15 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* Transparent application layers */
 body,
 #app-mount, 
-.app__160d8 { 
+#{classes.$application} {
     background: transparent; 
 }
 
 /* Global dark background */
-#app-mount .bg__960e4 {
+#app-mount #{classes.$application-background} {
     background-image: none !important;
     background-color: var(--spook-glass-dark) !important;
 }
@@ -17,19 +18,19 @@ body,
 #app-mount .BGM-bg_container { display: none !important; }
 
 /* Remove sidebar/chat seam */
-#app-mount .container__2637a,
-#app-mount .privateChannels_e6b769 {
+#app-mount #{classes.$channels-container},
+#app-mount #{classes.$private-channels} {
     margin-right: -1px !important;
     z-index: 1 !important;
 }
 
 /* Header Icons */
-#app-mount .clickable__81391, /* Header actions */
-#app-mount .backForwardButtons__63abb .button__63abb.disabled__63abb, /* Disabled navigation buttons */
-#app-mount .backForwardButtons__63abb .button__63abb { /* Window back and forward navigation buttons */
+#app-mount #{classes.$header-bar-icon-clickable}, /* Header actions */
+#app-mount #{classes.$bar-back-forward-buttons} #{classes.$bar-navigation-button}#{classes.$bar-navigation-button-disabled}, /* Disabled navigation buttons */
+#app-mount #{classes.$bar-back-forward-buttons} #{classes.$bar-navigation-button} { /* Window back and forward navigation buttons */
     color: var(--spook-secondary) !important; 
 }
-#app-mount .clickable__81391:hover, /* Header actions */
-#app-mount .backForwardButtons__63abb .button__63abb:not(.disabled__63abb):hover {  /* Window back and forward navigation buttons */
+#app-mount #{classes.$header-bar-icon-clickable}:hover, /* Header actions */
+#app-mount #{classes.$bar-back-forward-buttons} #{classes.$bar-navigation-button}:not(#{classes.$bar-navigation-button-disabled}):hover {  /* Window back and forward navigation buttons */
     @include mixins.icon-hover-glow();
 }

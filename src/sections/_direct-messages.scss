@@ -1,73 +1,74 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* Add to DM: scope the shared modal surface by its friend-list content. */
-#app-mount [role="dialog"] .container__8a031:has(.scrollerInner_cba592) {
+#app-mount [role="dialog"] #{classes.$modal-v2-container}:has(#{classes.$direct-messages-scroller-inner}) {
     @include mixins.glass-panel();
     @include mixins.backdrop-blur();
 }
 
 /* DM message authors use primary text without the theme's username highlight. */
-#app-mount .content__5e434:has(.privateChannels_e6b769) .chatContent_f75fb0 .username_c19a55 {
+#app-mount #{classes.$content-main}:has(#{classes.$private-channels}) #{classes.$chat-content} #{classes.$message-username} {
     color: var(--spook-primary) !important;
     text-shadow: none;
 }
 
 /* DM list background */
-#app-mount .privateChannels_e6b769 {
+#app-mount #{classes.$private-channels} {
     @include mixins.backdrop-blur();
     background: transparent !important;
 }
 
 /* Keep the DM list clear of the floating user panel */
-#app-mount .privateChannels_e6b769 .scrollerBase_d125d2 {
+#app-mount #{classes.$private-channels} #{classes.$scroller-base} {
     margin-bottom: 70px !important; 
 }    
 
 /* DM scrolling background */
-#app-mount .privateChannels_e6b769 .scrollerBase_d125d2,
-#app-mount .privateChannels_e6b769 .searchBar_e6b769 { 
+#app-mount #{classes.$private-channels} #{classes.$scroller-base},
+#app-mount #{classes.$private-channels} #{classes.$private-channels-search-bar} {
     background: var(--spook-glass-dark) !important;
 }    
 
 /* DM Section */
-#app-mount .privateChannelsHeaderContainer__99e7c .headerText__99e7c {
+#app-mount #{classes.$private-channels-header} #{classes.$private-channels-header-text} {
     color: var(--spook-highlight) !important;
 }
 
 /* Friend Name, Header text & icon, Pin, Close Icons, Collapse Icon */
-#app-mount .name__20a53,
-#app-mount .linkButtonIcon__972a0,
-#app-mount .favoriteIcon__972a0, 
-#app-mount .closeIcon__972a0 { 
+#app-mount #{classes.$direct-messages-name},
+#app-mount #{classes.$private-channel-icon},
+#app-mount #{classes.$private-channel-favorite-icon},
+#app-mount #{classes.$direct-messages-close-icon} {
     color: var(--spook-primary) !important;
 }
 
 /* DM sub text*/
-#app-mount .subtext__972a0 {
+#app-mount #{classes.$direct-messages-subtext} {
     color: var(--spook-secondary) !important;
 }
 
 /* DM Section Hover */
-#app-mount .privateChannelsHeaderContainer__99e7c .headerText__99e7c:hover {
+#app-mount #{classes.$private-channels-header} #{classes.$private-channels-header-text}:hover {
     @include mixins.glowing-text();
     filter: var(--spook-glow-filter-weak);
 }
 
 /* Selected & Hovered DM */
-#app-mount .privateChannels_e6b769 .interactiveSelected__972a0,
-#app-mount .privateChannels_e6b769 .interactive__972a0:hover {
+#app-mount #{classes.$private-channels} #{classes.$direct-messages-interactive-selected},
+#app-mount #{classes.$private-channels} #{classes.$private-channel-inner}:hover {
     @include mixins.selection-highlight();
     filter: var(--spook-glow-filter-weak);
 }
 
 /* Selected & Hovered DM Names */
-#app-mount .privateChannels_e6b769 .interactiveSelected__972a0 .overflow_b0dfc2,
-#app-mount .privateChannels_e6b769 .interactive__972a0:hover .overflow_b0dfc2 {
+#app-mount #{classes.$private-channels} #{classes.$direct-messages-interactive-selected} #{classes.$text-overflow},
+#app-mount #{classes.$private-channels} #{classes.$private-channel-inner}:hover #{classes.$text-overflow} {
     color: var(--spook-neon) !important;
 }
 
 /* Unread DM indicator */
-#app-mount .privateChannels_e6b769 .unreadPill__972a0 {
+#app-mount #{classes.$private-channels} #{classes.$direct-messages-unread-pill} {
     @include mixins.accent-surface-glow-neon();
     filter: var(--spook-glow-filter-strong);
 }

@@ -1,35 +1,36 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* Glass styling */
-#app-mount .channelTextArea__74017 {
+#app-mount #{classes.$channel-text-area} {
     @include mixins.glass-panel();
 }
 
 /* Composer */
-#app-mount .wrapperAudio_cf09d8,
-#app-mount .channelTextArea__74017 .scrollableContainer__74017 {
+#app-mount #{classes.$player-audio},
+#app-mount #{classes.$channel-text-area} #{classes.$channel-text-area-scrollable} {
     background: transparent !important;
 }
 
 /* Prevent messages overlapping composer */
-#app-mount .messagesWrapper__36d07 {
+#app-mount #{classes.$messages} {
     margin-bottom: 18px !important;
 }
 
 
 
 /* Message composer placeholder */
-#app-mount .channelTextArea__74017 .placeholder__1b31f {
+#app-mount #{classes.$channel-text-area} #{classes.$text-area-placeholder} {
     color: var(--spook-primary) !important;
 }
 
 /* Message composer input text */
-#app-mount .channelTextArea__74017 .markup__75297 {
+#app-mount #{classes.$channel-text-area} #{classes.$markup} {
     color: var(--spook-primary) !important;
 }
 
 /* Message composer mentions */
-#app-mount .channelTextArea__74017 .wrapper_f61d60 {
+#app-mount #{classes.$channel-text-area} #{classes.$mention-wrapper} {
     color: var(--spook-neon) !important;
     @include mixins.selection-highlight();
 }
@@ -37,66 +38,66 @@
 
 
 /* Action buttons: attachment, stickers, emoji, and apps */
-#app-mount .attachButtonInner__0923f svg,
-#app-mount .channelTextArea__74017 .button__74017,
-#app-mount .channelTextArea__74017 .emojiButton__74017,
-#app-mount .channelTextArea__74017 .button_e6e74f {
+#app-mount #{classes.$channel-text-area-attach-button-inner} svg,
+#app-mount #{classes.$channel-text-area} #{classes.$channel-text-area-button},
+#app-mount #{classes.$channel-text-area} #{classes.$composer-emoji-button},
+#app-mount #{classes.$channel-text-area} #{classes.$channel-app-launcher-button} {
     color: var(--spook-primary) !important;
 }
 /* Action buttons hover */
-#app-mount .attachButtonInner__0923f:hover svg,
-#app-mount .channelTextArea__74017 .button__74017:hover,
-#app-mount .channelTextArea__74017 .emojiButton__74017:hover,
-#app-mount .channelTextArea__74017 .button_e6e74f:hover {
+#app-mount #{classes.$channel-text-area-attach-button-inner}:hover svg,
+#app-mount #{classes.$channel-text-area} #{classes.$channel-text-area-button}:hover,
+#app-mount #{classes.$channel-text-area} #{classes.$composer-emoji-button}:hover,
+#app-mount #{classes.$channel-text-area} #{classes.$channel-app-launcher-button}:hover {
     @include mixins.icon-hover-glow();
 }    
 
 
 
-#app-mount .stackedBars__74017 {
+#app-mount #{classes.$channel-text-area-stacked-bars} {
     background: transparent !important;
 }
 
 /* Reply bar label */
-#app-mount .replyBar__841c8 .replyLabel__841c8 {
+#app-mount #{classes.$reply-bar} #{classes.$composer-reply-label} {
     color: var(--spook-secondary) !important;
 }
 
 /* Reply bar username */
-#app-mount .replyBar__841c8 .replyLabel__841c8 [data-text-variant] {
+#app-mount #{classes.$reply-bar} #{classes.$composer-reply-label} [data-text-variant] {
     color: var(--spook-primary) !important;
 }
 
 /* Reply bar close button */
-#app-mount .replyBar__841c8 .closeButton_e876a8 {
+#app-mount #{classes.$reply-bar} #{classes.$reply-cancel-button} {
     color: var(--spook-primary) !important;
 }
 
 /* Reply bar close button hover */
-#app-mount .replyBar__841c8 .closeButton_e876a8:hover {
+#app-mount #{classes.$reply-bar} #{classes.$reply-cancel-button}:hover {
     @include mixins.icon-hover-glow();
 }
 
 
 
 /* Attachment preview glass styling */
-#app-mount .upload_aa605f {
+#app-mount #{classes.$channel-text-area-upload} {
     @include mixins.glass-panel();
 }
 
 /* Attachment preview action buttons */
-#app-mount .upload_aa605f .actionBar_aa605f .button_f7ecac:not(.dangerous_f7ecac) {
+#app-mount #{classes.$channel-text-area-upload} #{classes.$composer-action-bar} #{classes.$message-button}:not(#{classes.$composer-dangerous}) {
     color: var(--spook-primary) !important;
 }
 
 /* Attachment preview action buttons hover */
-#app-mount .upload_aa605f .actionBar_aa605f .button_f7ecac:hover {
+#app-mount #{classes.$channel-text-area-upload} #{classes.$composer-action-bar} #{classes.$message-button}:hover {
     @include mixins.icon-hover-glow();
 }
 
 /* Attachment action bar background */
-#app-mount .upload_aa605f .actionBar_aa605f,
-#app-mount .upload_aa605f .wrapper_f7ecac {
+#app-mount #{classes.$channel-text-area-upload} #{classes.$composer-action-bar},
+#app-mount #{classes.$channel-text-area-upload} #{classes.$message-button-wrapper} {
     @include mixins.glass-panel();
     @include mixins.backdrop-blur();
 }

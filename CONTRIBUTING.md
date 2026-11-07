@@ -17,6 +17,8 @@ npm test
 
 Edit `src/` for styling. Preserve the order in `src/main.scss`, existing selectors, `--spook-*` properties, and intentionally separate styling and diagnostic controls. Keep BackgroundManager and wallpaper behavior unchanged unless the proposal explicitly addresses them. Shared mixins live in `src/abstracts/_mixins.scss`; new abstraction layers and dependencies need a concrete benefit.
 
+Discord class names belong in `src/abstracts/_classes.scss`. Use its semantic aliases in section selectors and follow the [selector maintenance workflow](docs/SELECTORS.md) when Discord changes its DOM.
+
 Generated CSS is tracked. Run the build and include the resulting loader and stylesheet changes when appropriate; do not edit generated files manually. Production metadata belongs in `package.json`. See [release preparation](docs/RELEASING.md) before changing the version.
 
 ## Test the change

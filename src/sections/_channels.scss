@@ -1,100 +1,101 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* Channel List Background */
-#app-mount .container__2637a {
+#app-mount #{classes.$channels-container} {
     @include mixins.backdrop-blur();
     background: var(--spook-glass-dark) !important;
     margin-bottom: 20px !important;
 }
 
 /* Server name and details */
-#app-mount .title_edbb22 .primaryColor__4bd52,
-#app-mount .guildBadgeAndName_f37cb1 .name_f37cb1,
-#app-mount .textContentContainer__0d0f9 .text__0d0f9 {
+#app-mount #{classes.$bar-title} #{classes.$text-default-color},
+#app-mount #{classes.$channels-guild-badge-and-name} #{classes.$channels-header-name},
+#app-mount #{classes.$channels-text-content-container} #{classes.$channels-text} {
     color: var(--spook-highlight) !important;
 }
 
-#app-mount .inviteButton_f37cb1, /* Server invite button */
-#app-mount .guildDropdown_f37cb1 .headerChildren_f37cb1 svg { /* Server dropdown arrow */
+#app-mount #{classes.$channels-header-invite-button}, /* Server invite button */
+#app-mount #{classes.$channels-header-guild-dropdown} #{classes.$channels-header-children} svg { /* Server dropdown arrow */
     color: var(--spook-secondary) !important;
 }
 
 /* Server header hover */
-#app-mount .guildDropdown_f37cb1:hover .headerChildren_f37cb1 svg,
-#app-mount .inviteButton_f37cb1:hover {
+#app-mount #{classes.$channels-header-guild-dropdown}:hover #{classes.$channels-header-children} svg,
+#app-mount #{classes.$channels-header-invite-button}:hover {
     @include mixins.icon-hover-glow();
 }
 
 /* Default channel names; unread, selected and hover colors follow below. */
-#app-mount .container__2637a .link__2ea32 .name__2ea32 {
+#app-mount #{classes.$channels-container} #{classes.$channel-link} #{classes.$channel-name} {
     color: var(--spook-secondary) !important;
 }
 
 /* Read & Muted channel icon, category and collapse arrow */
-#app-mount .container__2637a .link__2ea32 .icon__2ea32, 
-#app-mount .container__2637a .containerDefault__29444 .icon__29444 { 
+#app-mount #{classes.$channels-container} #{classes.$channel-link} #{classes.$channel-icon},
+#app-mount #{classes.$channels-container} #{classes.$category-container-default} #{classes.$category-icon} {
     color: var(--spook-primary) !important;
 }
 
 /* Unread channel, icon and category */
-#app-mount .container__2637a .modeUnreadImportant__2ea32 .name__2ea32, 
-#app-mount .container__2637a .modeUnreadImportant__2ea32 .icon__2ea32,  
-#app-mount .container__2637a .containerDefault__29444 .name__29444 {
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper-unread} #{classes.$channel-name},
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper-unread} #{classes.$channel-icon},
+#app-mount #{classes.$channels-container} #{classes.$category-container-default} #{classes.$category-name} {
     color: var(--spook-highlight) !important;
 }
 
 /* Unread channel Glow */
-#app-mount .container__2637a .modeUnreadImportant__2ea32 .name__2ea32, 
-#app-mount .container__2637a .modeUnreadImportant__2ea32 .icon__2ea32 {
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper-unread} #{classes.$channel-name},
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper-unread} #{classes.$channel-icon} {
     filter: var(--spook-glow-filter-strong);
 }
 
 /* Selected & hovered channel rows: background and glow */
-#app-mount .container__2637a .containerDefault__29444:hover .icon__29444,
-#app-mount .container__2637a .selectedChannel_c69b6d .actionIcon_c69b6d,
-#app-mount .container__2637a .containerprimary_c69b6d:hover .actionIcon_c69b6d,
-#app-mount .container__2637a .modeSelected__2ea32 .icon__2ea32,
-#app-mount .container__2637a .modeSelected__2ea32 .link__2ea32,
-#app-mount .container__2637a .wrapper__2ea32:hover .icon__2ea32,
-#app-mount .container__2637a .wrapper__2ea32:hover .link__2ea32 {
+#app-mount #{classes.$channels-container} #{classes.$category-container-default}:hover #{classes.$category-icon},
+#app-mount #{classes.$channels-container} #{classes.$channels-selected-channel} #{classes.$channel-action-icon},
+#app-mount #{classes.$channels-container} #{classes.$channel-row}:hover #{classes.$channel-action-icon},
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper-selected} #{classes.$channel-icon},
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper-selected} #{classes.$channel-link},
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper}:hover #{classes.$channel-icon},
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper}:hover #{classes.$channel-link} {
     @include mixins.selection-highlight();
     filter: var(--spook-glow-filter-weak);
 }
 
 /* Selected & hovered channel names */
-#app-mount .container__2637a .modeSelected__2ea32 .name__2ea32,
-#app-mount .container__2637a .wrapper__2ea32:hover .name__2ea32 {
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper-selected} #{classes.$channel-name},
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper}:hover #{classes.$channel-name} {
     color: var(--spook-neon) !important;
 }
 
 /* Selected & hovered channel icons and action icons */
-#app-mount .container__2637a .modeSelected__2ea32 .icon__2ea32,
-#app-mount .container__2637a .wrapper__2ea32:hover .icon__2ea32,
-#app-mount .container__2637a .selectedChannel_c69b6d .actionIcon_c69b6d,
-#app-mount .container__2637a .wrapper__2ea32:hover .actionIcon_c69b6d {
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper-selected} #{classes.$channel-icon},
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper}:hover #{classes.$channel-icon},
+#app-mount #{classes.$channels-container} #{classes.$channels-selected-channel} #{classes.$channel-action-icon},
+#app-mount #{classes.$channels-container} #{classes.$channel-wrapper}:hover #{classes.$channel-action-icon} {
     color: var(--spook-neon) !important;
 }
 
 /* Hovered category name and collapse arrow */
-#app-mount .container__2637a .containerDefault__29444:hover .name__29444,
-#app-mount .container__2637a .containerDefault__29444:hover .icon__29444 {
+#app-mount #{classes.$channels-container} #{classes.$category-container-default}:hover #{classes.$category-name},
+#app-mount #{classes.$channels-container} #{classes.$category-container-default}:hover #{classes.$category-icon} {
     @include mixins.glowing-text();
     filter: var(--spook-glow-filter-weak);
 }
 
 /* Unread Indicator */
-#app-mount .channelInfo_c69b6d .numberBadge__463b7,
-#app-mount .unread__2ea32.unreadImportant__2ea32 {
+#app-mount #{classes.$channel-voice-info} #{classes.$number-badge},
+#app-mount #{classes.$channels-unread}#{classes.$channels-unread-important} {
     @include mixins.notification-badge();
 }
 
 /* New unreads pill glass */
-#app-mount .bar__7aaec {
+#app-mount #{classes.$channel-bar} {
     @include mixins.glass-panel();
 }
 
 /* New unreads pill label */
-#app-mount .bar__7aaec .barText__7aaec,
-#app-mount .bar__7aaec .unreadIcon__7aaec {
+#app-mount #{classes.$channel-bar} #{classes.$channel-mentions-bar-text},
+#app-mount #{classes.$channel-bar} #{classes.$channels-unread-icon} {
     color: var(--spook-highlight) !important;
 }

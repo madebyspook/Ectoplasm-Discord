@@ -1,38 +1,39 @@
+@use "../abstracts/classes";
 @use "../abstracts/mixins";
 
 /* Browse Channels wallpaper */
-#app-mount .chat__0b563::before {
+#app-mount #{classes.$browse-channels-chat}::before {
     @include mixins.wallpaper-layer();
 }
 
 /* Browse Channels wallpaper host */
-#app-mount .chat__0b563 {
+#app-mount #{classes.$browse-channels-chat} {
     @include mixins.wallpaper-host();
 }
 
 /* Transparent content containers */
-#app-mount .chat__0b563 .content_f75fb0,
-#app-mount .chat__0b563 .pageBody__41ed7 {
+#app-mount #{classes.$browse-channels-chat} #{classes.$chat-content-wrapper},
+#app-mount #{classes.$browse-channels-chat} #{classes.$page-body} {
     background: transparent !important;
 }
 
 /* Channel rows */
-#app-mount .chat__0b563 .channelRow_e4503a {
+#app-mount #{classes.$browse-channels-chat} #{classes.$browse-channels-channel-row} {
     background: var(--spook-glass-dark) !important;
 }
 
 /* Channel names */
-#app-mount .chat__0b563 .channelText_e4503a {
+#app-mount #{classes.$browse-channels-chat} #{classes.$browse-channels-channel-text} {
     color: var(--spook-primary) !important;
 }
 
 /* Channel type icons */
-#app-mount .chat__0b563 .channelName_e4503a .icon__2ea32 {
+#app-mount #{classes.$browse-channels-chat} #{classes.$browse-channels-channel-name} #{classes.$channel-icon} {
     color: var(--spook-primary) !important;
 }
 
 /* Channel subtitles / activity */
-#app-mount .chat__0b563 .channelSubtitle_e4503a {
+#app-mount #{classes.$browse-channels-chat} #{classes.$browse-channels-channel-subtitle} {
     color: var(--spook-secondary) !important;
 }
 
