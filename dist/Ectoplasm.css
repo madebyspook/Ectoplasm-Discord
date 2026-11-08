@@ -84,12 +84,12 @@
   /* --spook-background-image: var(--bgm-url); */
   /* --spook-background-fill: transparent; */
   /* 2. Custom wallpaper (BackgroundManager is not required) */
-  /* --spook-background-image: url("YOUR_IMAGE_URL"); */
-  /* --spook-background-fill: transparent; */
+  --spook-background-image: url("https://i.imgur.com/M3ZBKlD.png");
+  --spook-background-fill: transparent;
   /* 3. Solid background (BackgroundManager is not required) */
-  --spook-background-image: none;
-  --spook-background-color: none;
-  --spook-background-fill: oklch(from var(--spook-accent) 18% 0.02 h);
+  /*--spook-background-image: none;*/
+  /*--spook-background-color: none;*/
+  /*--spook-background-fill: oklch(from var(--spook-accent) 18% 0.02 h);*/
 }
 
 /* Global text readability */
