@@ -1,7 +1,7 @@
 /**
  * @name Ectoplasm
  * @author Made By Spook
- * @version 1.4.5
+ * @version 1.4.6
  * @description A sleek, near-black Discord theme with icy blue accents and optional blurred backgrounds for a translucent, glass-like appearance.
  * @source https://github.com/madebyspook/Ectoplasm-Discord
  * @updateUrl https://madebyspook.github.io/Ectoplasm-Discord/Ectoplasm.theme.css
@@ -24,5 +24,4 @@
   --spook-primary: #BBD0F2;
   --spook-secondary: #6A7C99;
   --spook-muted: #4F6180;
-  --spook-background-image: var(--bgm-url);
 }
