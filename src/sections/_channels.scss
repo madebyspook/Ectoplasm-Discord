@@ -1,6 +1,16 @@
 @use "../abstracts/classes";
 @use "../abstracts/mixins";
 
+/* CollapsibleUI collapsed channel-list border */
+#app-mount #{classes.$channels-sidebar-list} {
+    border-right-width: calc(1px * var(--cui-channel-list-toggled, 1)) !important;
+}
+
+/* CollapsibleUI collapsed channel-list contents */
+#app-mount #{classes.$channels-sidebar-list} > #{classes.$channels-container} {
+    opacity: var(--cui-channel-list-toggled, 1) !important;
+}
+
 /* Channel List Background */
 #app-mount #{classes.$channels-container} {
     @include mixins.backdrop-blur();

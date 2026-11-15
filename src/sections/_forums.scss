@@ -13,6 +13,22 @@
 
 
 
+/* Forum all-tags panel */
+#app-mount #{classes.$forum-tags-popout} {
+    @include mixins.glass-panel();
+    @include mixins.backdrop-blur();
+}
+
+/* Forum all-tags heading */
+#app-mount #{classes.$forum-tags-popout} #{classes.$forum-tags-popout-heading} {
+    color: var(--spook-secondary) !important;
+}
+
+/* Forum all-tags labels */
+#app-mount #{classes.$forum-tags-popout} #{classes.$forum-tags-popout-tag} #{classes.$text-single-line} {
+    color: var(--spook-primary) !important;
+}
+
 /* Forum tag filter pills */
 #app-mount #{classes.$forum-tags-container} #{classes.$forum-sort-dropdown},
 #app-mount #{classes.$forum-tags-container} #{classes.$forum-tags-button},
