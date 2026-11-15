@@ -1,43 +1,47 @@
 # Ectoplasm — Agent Instructions
 
-Ectoplasm is a BetterDiscord theme with dark translucent surfaces, customizable accents, and neon glow effects. Preserve its existing appearance and functionality unless the user explicitly requests a visual change.
+Ectoplasm is a BetterDiscord theme with dark translucent surfaces, customizable accents, and neon glow effects. Preserve its existing appearance and functionality unless explicitly requested otherwise.
 
-## Source and distribution
+## Source and Distribution
 
 - `src/main.scss` is the authoritative, ordered SCSS entry point. Preserve its module order.
-- `src/abstracts/` holds CSS custom properties and shared Sass mixins.
+- `src/abstracts/` contains CSS custom properties, configuration, and shared Sass mixins.
 - `src/sections/` groups styles by Discord interface area.
-- `package.json` supplies production metadata. Its version must match the package lockfile.
-- `scripts/build.mjs` generates the root `Ectoplasm.theme.css` remote loader and `dist/Ectoplasm.css` hosted stylesheet. Never edit either CSS output manually.
-- Preserve the remote-loader architecture, public filenames, and existing GitHub Pages URLs. A release tag does not freeze the remote stylesheet.
+- `package.json` supplies production metadata. Keep its version synchronized with `package-lock.json`.
+- `scripts/build.mjs` generates the root `Ectoplasm.theme.css` loader and the hosted `dist/Ectoplasm.css` stylesheet. Never edit generated CSS manually.
+- Preserve the remote-loader architecture, public filenames, and GitHub Pages URLs unless explicitly requested otherwise.
+- A release tag does not freeze the remotely hosted stylesheet.
 
-## Styling boundaries
+## Styling
 
-- Keep changes small and scoped to the requested interface area. Preserve selectors, declaration order, specificity, `!important`, and existing behavior unless changes are explicitly authorized.
-- Preserve all `--spook-*` names and intentionally separate styling and diagnostic variables. Similar values do not make controls interchangeable.
-- Reuse existing mixins when they meaningfully reduce duplication; avoid abstractions solely to reduce line count.
-- Preserve BackgroundManager integration, wallpaper variables, and existing no-fallback behavior unless that work is explicitly requested.
-- Do not fix suspected selectors or change visual effects speculatively. Confirm behavior in Discord first.
+- Scope selectors to the intended Discord interface area. Avoid unintended changes to specificity, declaration order, `!important`, and cascade behavior.
+- Preserve existing `--spook-*` variable names and their distinct purposes. Similar values do not make variables interchangeable.
+- Reuse existing Sass mixins where appropriate. Avoid abstractions that add complexity without meaningful benefit.
+- Preserve BackgroundManager integration, wallpaper configuration, and macOS Vibrancy behavior unless explicitly requested otherwise.
+- Do not change suspected outdated Discord selectors speculatively. Verify them against the live client when possible, or identify what requires manual inspection.
 
-## Tooling and validation
+## Build and Development
 
-- Use the existing local Dart Sass dependency; do not introduce dependencies without a clear benefit.
-- Run `npm run build` after source, metadata, or build changes, then `npm run check` and `npm test` as appropriate.
-- Compare compiled styling with a fresh baseline for changes that must preserve appearance. Ignore only metadata/comment differences; preserve selectors, declarations, and cascade order.
-- `npm run check` is read-only. It must detect missing/stale generated outputs and version mismatches.
-- Build/watch without `--dev` must not install files outside the repository.
-- The installed `EctoplasmDev.theme.css` must be written **in place**, never with an atomic rename. BetterDiscord can unload atomically replaced development themes. Repository outputs may use atomic replacement.
-- Use temporary fixtures for tooling tests, never the user's real BetterDiscord folder.
-- Follow `docs/TESTING.md` for manual checks. Do not claim runtime compatibility or visual verification without actual Discord testing.
+- Use the existing local Dart Sass dependency.
+- `npm run build` generates the production loader and stylesheet without installing them into BetterDiscord.
+- `npm run build -- --watch --dev` watches source changes and updates the installed `EctoplasmDev.theme.css`.
+- Write the installed development theme in place, never through atomic replacement. BetterDiscord may unload atomically replaced theme files.
+- Repository-generated outputs may use atomic replacement.
+- `npm run check` is read-only and verifies generated outputs and metadata consistency.
+- Use temporary fixtures for tooling tests, never the user's actual BetterDiscord themes directory.
+- When preserving appearance is essential, compare compiled CSS against a baseline, excluding only metadata and comment differences.
 
-## Documentation and delivery
+## Documentation and Distribution
 
-- Keep installation instructions separate from contributor setup. Document current behavior and limitations accurately.
-- Keep `CONTRIBUTING.md`, issue templates, and `docs/RELEASING.md` consistent with supported commands.
+- Keep end-user installation instructions separate from contributor setup.
+- Keep `README.md`, `CONTRIBUTING.md`, and GitHub templates consistent with the actual project behavior.
 - Do not invent screenshots, compatibility results, release notes, or release history.
-- Do not choose or add a license. Leave licensing as an explicit owner decision.
-- Work on a descriptive branch for implementation work; never commit or push directly to `main`.
-- Do not commit, push, open a pull request, tag, merge, create a GitHub Release, or publish unless explicitly requested.
-- Do not change Git configuration, repository settings, or hosting settings without permission. Preserve unrelated work and local editor configuration.
+- Do not choose or add a license without an explicit owner decision.
+- Do not change GitHub Pages configuration, repository settings, or hosting infrastructure without explicit permission.
+- Do not claim Discord runtime compatibility or visual verification without testing the live client.
 
-When handing off, state what changed, the important decisions, validation performed, and remaining manual steps. Distinguish automated checks from Discord testing. Ask before a decision that would significantly affect appearance, architecture, or behavior.
+## Handoff
+
+- Report any remaining Discord-specific visual checks or manual steps.
+- Distinguish automated build results from actual Discord runtime testing.
+- Ask before making decisions that significantly affect the theme's appearance, architecture, or distribution.

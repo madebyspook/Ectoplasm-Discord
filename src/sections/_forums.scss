@@ -83,12 +83,12 @@
 
 /* Forum post card tag label */
 #app-mount #{classes.$post-pill} #{classes.$text-single-line}#{classes.$text-xs-semibold} {
-    color: var(--spook-highlight) !important;
+    color: var(--spook-neon) !important;
 }
 
 /* Forum title text */
 #app-mount #{classes.$forums-post-title-text} {
-    color: var(--spook-highlight) !important;
+    color: var(--spook-neon) !important;
 }
 
 /* Forum text */

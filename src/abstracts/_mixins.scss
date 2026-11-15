@@ -9,9 +9,8 @@
 
     background-color: var(--spook-background-fill);
     background-image:
-        var(--spook-background-color),
-        var(--spook-background-image);
-
+        var(--spook-background-color, none),
+        var(--spook-background-image, none);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

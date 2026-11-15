@@ -1,7 +1,7 @@
 /**
  * @name Ectoplasm
  * @author Made By Spook
- * @version 1.4.3
+ * @version 1.4.4
  * @description A sleek, near-black Discord theme with icy blue accents and optional blurred backgrounds for a translucent, glass-like appearance.
  * @source https://github.com/madebyspook/Ectoplasm-Discord
  * @updateUrl https://madebyspook.github.io/Ectoplasm-Discord/Ectoplasm.theme.css
@@ -10,27 +10,21 @@
    VARIABLES
    ============================================================ */
 :root {
-  /* Wallpaper */
+  /* background */
+  --spook-background-select: rgba(from var(--spook-accent) r g b / 0.2);
   --spook-background-color:
       linear-gradient(
-          rgb(from color-mix(in srgb, var(--spook-accent) 0%, black) r g b / 0.15),
-          rgb(from color-mix(in srgb, var(--spook-accent) 0%, black) r g b / 0.15)
+          rgba(from var(--spook-bg-gradient-upper) r g b / var(--spook-bg-darken-factor)),
+          rgba(from var(--spook-bg-gradient-lower) r g b / var(--spook-bg-darken-factor))
       );
-  /* Text palette */
-  --spook-neon: color-mix(in srgb, color-mix(in srgb, var(--spook-accent) 25%, white) 100%, black);
-  --spook-highlight: color-mix(in srgb, color-mix(in srgb, var(--spook-accent) 15%, white) 95%, black);
-  --spook-primary: color-mix(in srgb, color-mix(in srgb, var(--spook-accent) 25%, white) 95%, black);
-  --spook-secondary: color-mix(in srgb, color-mix(in srgb, var(--spook-accent) 35%, white) 60%, black);
-  /* Select Background */
-  --spook-background-select: rgba(from var(--spook-accent) r g b / 0.1);
   /* Glass appearance */
   --spook-glass-filter:
       blur(8px)
       saturate(1.25);
-  --spook-glass-dark: rgb(from color-mix(in srgb, var(--spook-accent) 7%, black) r g b / 0.20);
+  --spook-glass-dark: rgb(from color-mix(in srgb, var(--spook-accent) 7%, black) r g b / 0.2);
   --spook-glass-light: rgb(from color-mix(in srgb, var(--spook-accent) 25%, white) r g b / 0.14);
-  --spook-glass-card: rgb(from color-mix(in srgb, var(--spook-accent) 25%, white) r g b / 0.20);
-  --spook-glass-card-hover: rgb(from color-mix(in srgb, var(--spook-accent) 25%, white) r g b / 0.33);
+  --spook-glass-card: color-mix(in srgb, var(--spook-glass-light) 95%, white);
+  --spook-glass-card-hover: color-mix(in srgb, var(--spook-glass-card) 75%, var(--spook-accent));
   --spook-glass-border: 1px solid rgb(from color-mix(in srgb, var(--spook-accent) 20%, white) r g b / 0.32);
   --spook-glass-border-radius: 12px;
   --spook-glass-box-shadow:
@@ -70,26 +64,23 @@
       drop-shadow(0 0 8px rgb(from var(--spook-accent) r g b / 0.7));
 }
 
+/* Emit after the defaults so the solid option can disable the wallpaper tint. */
 /* ============================================================
    USER CONFIGURATION
    Edit these values in your downloaded Ectoplasm.theme.css.
    Replacing that file may overwrite your customizations.
    ============================================================ */
 :root {
-  /* Accent color */
   --spook-accent: #3C86ff;
-  /* Background: enable ONE option below. Comment out the previous
-     option's declarations when switching. Glass and blur stay enabled. */
-  /* 1. BackgroundManager (default; requires BackgroundManager) */
-  /* --spook-background-image: var(--bgm-url); */
-  /* --spook-background-fill: transparent; */
-  /* 2. Custom wallpaper (BackgroundManager is not required) */
-  --spook-background-image: url("https://i.imgur.com/M3ZBKlD.png");
-  --spook-background-fill: transparent;
-  /* 3. Solid background (BackgroundManager is not required) */
-  /*--spook-background-image: none;*/
-  /*--spook-background-color: none;*/
-  /*--spook-background-fill: oklch(from var(--spook-accent) 18% 0.02 h);*/
+  --spook-neon: #C5DAFF;
+  --spook-bg-primary: #15171c;
+  --spook-bg-gradient-upper: var(--spook-bg-primary);
+  --spook-bg-gradient-lower: var(--spook-bg-primary);
+  --spook-bg-darken-factor: 0;
+  --spook-primary: #BBD0F2;
+  --spook-secondary: #6A7C99;
+  --spook-muted: #4F6180;
+  --spook-background-image: var(--bgm-url);
 }
 
 /* Global text readability */
@@ -174,7 +165,7 @@ body,
 #app-mount .title_LnjVAX .defaultColor_MMUIw6,
 #app-mount .guildBadgeAndName_XH4OpX .name_XH4OpX,
 #app-mount .textContentContainer_BFMMcK .text_BFMMcK {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 #app-mount .inviteButton_XH4OpX,
@@ -204,7 +195,7 @@ body,
 #app-mount .container_H5ozaj .modeUnreadImportant_TNyK-N .name_TNyK-N,
 #app-mount .container_H5ozaj .modeUnreadImportant_TNyK-N .icon_TNyK-N,
 #app-mount .container_H5ozaj .containerDefault_yOdhm_ .name_yOdhm_ {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Unread channel Glow */
@@ -268,7 +259,7 @@ body,
 /* New unreads pill label */
 #app-mount .bar_t1P8Sn .barText_t1P8Sn,
 #app-mount .bar_t1P8Sn .unreadIcon_t1P8Sn {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Add to DM: scope the shared modal surface by its friend-list content. */
@@ -307,7 +298,7 @@ body,
 
 /* DM Section */
 #app-mount .privateChannelsHeaderContainer_Bce46W .headerText_Bce46W {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Friend Name, Header text & icon, Pin, Close Icons, Collapse Icon */
@@ -374,7 +365,7 @@ body,
   z-index: -1;
   pointer-events: none;
   background-color: var(--spook-background-fill);
-  background-image: var(--spook-background-color), var(--spook-background-image);
+  background-image: var(--spook-background-color, none), var(--spook-background-image, none);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -391,7 +382,7 @@ body,
 
 /* Friends list section heading */
 #app-mount .peopleColumn_zrUwGA .sectionTitle_wVFOQW h2 {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Friend names */
@@ -481,7 +472,7 @@ body,
 /* Member group headings */
 #app-mount .membersGroupHeader_86es0b,
 #app-mount .membersGroupName_86es0b {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Member status */
@@ -507,7 +498,7 @@ body,
 
 /* Header title */
 #app-mount .title_ybUK7Z {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Channel header secondary text */
@@ -542,7 +533,7 @@ body,
   z-index: -1;
   pointer-events: none;
   background-color: var(--spook-background-fill);
-  background-image: var(--spook-background-color), var(--spook-background-image);
+  background-image: var(--spook-background-color, none), var(--spook-background-image, none);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -688,7 +679,7 @@ body,
 
 /* Own reaction: accent count */
 #app-mount .reaction_MmKct8.reactionMe_MmKct8 .reactionCount_MmKct8 {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Reaction counts */
@@ -734,7 +725,7 @@ body,
 
 /* Thread preview card title */
 #app-mount .container_g2fiji .name_g2fiji {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Thread preview card message count link */
@@ -1009,7 +1000,7 @@ body,
   z-index: -1;
   pointer-events: none;
   background-color: var(--spook-background-fill);
-  background-image: var(--spook-background-color), var(--spook-background-image);
+  background-image: var(--spook-background-color, none), var(--spook-background-image, none);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1096,12 +1087,12 @@ body,
 
 /* Forum post card tag label */
 #app-mount .pill_snX-u4 .lineClamp1_MMUIw6[data-text-variant="body-xs/semibold"] {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Forum title text */
 #app-mount .postTitleText_SOY5H6 {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Forum text */
@@ -1162,7 +1153,7 @@ body,
   z-index: -1;
   pointer-events: none;
   background-color: var(--spook-background-fill);
-  background-image: var(--spook-background-color), var(--spook-background-image);
+  background-image: var(--spook-background-color, none), var(--spook-background-image, none);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1199,7 +1190,7 @@ body,
 /* Sidebar heading and main section headings */
 #app-mount .standardSidebarView_jnk11m:has(.category_EMttMj) .headerText_6zZYhF,
 #app-mount .standardSidebarView_jnk11m:has(.category_EMttMj) .contentColumn_jnk11m h2 {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Channel name, form labels and navigation text */
@@ -1265,7 +1256,7 @@ body,
   z-index: -1;
   pointer-events: none;
   background-color: var(--spook-background-fill);
-  background-image: var(--spook-background-color), var(--spook-background-image);
+  background-image: var(--spook-background-color, none), var(--spook-background-image, none);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1335,7 +1326,7 @@ body,
 
 /* Search group headers */
 #app-mount .groupHeader_lm2_KW [data-text-variant="body-xs/semibold"] {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Search Icon, Text, In: text */
@@ -1358,7 +1349,7 @@ body,
 /* Search filter sublabels: in:, has:, mentions: */
 #app-mount .filterSublabelTextContainer_lm2_KW [data-text-variant="body-sm/semibold"],
 #app-mount .filterSublabelTextContainer_lm2_KW [data-text-variant="body-sm/medium"] {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Search row hover */
@@ -1410,7 +1401,7 @@ body,
 /* Category */
 #app-mount .modal__F9ieB .label_cR4ic2,
 #app-mount .tabBar_zrUwGA .item_zrUwGA.selected_6zZYhF {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* muted settings text */
@@ -1532,7 +1523,7 @@ body,
 .bd-tooltip,
 .bd-tooltip *,
 #app-mount .emojiTooltipText_V_VY9Q[data-text-variant="body-sm/medium"] {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Emoji tooltip description */
@@ -1636,7 +1627,7 @@ body,
 
 /* Picker category labels */
 #app-mount .categoryName_d2GpC2 {
-  color: var(--spook-highlight) !important;
+  color: var(--spook-neon) !important;
 }
 
 /* Browse Channels wallpaper */
@@ -1647,7 +1638,7 @@ body,
   z-index: -1;
   pointer-events: none;
   background-color: var(--spook-background-fill);
-  background-image: var(--spook-background-color), var(--spook-background-image);
+  background-image: var(--spook-background-color, none), var(--spook-background-image, none);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

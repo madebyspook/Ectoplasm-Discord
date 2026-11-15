@@ -12,7 +12,7 @@
 #app-mount #{classes.$bar-title} #{classes.$text-default-color},
 #app-mount #{classes.$channels-guild-badge-and-name} #{classes.$channels-header-name},
 #app-mount #{classes.$channels-text-content-container} #{classes.$channels-text} {
-    color: var(--spook-highlight) !important;
+    color: var(--spook-neon) !important;
 }
 
 #app-mount #{classes.$channels-header-invite-button}, /* Server invite button */
@@ -41,7 +41,7 @@
 #app-mount #{classes.$channels-container} #{classes.$channel-wrapper-unread} #{classes.$channel-name},
 #app-mount #{classes.$channels-container} #{classes.$channel-wrapper-unread} #{classes.$channel-icon},
 #app-mount #{classes.$channels-container} #{classes.$category-container-default} #{classes.$category-name} {
-    color: var(--spook-highlight) !important;
+    color: var(--spook-neon) !important;
 }
 
 /* Unread channel Glow */
@@ -97,5 +97,5 @@
 /* New unreads pill label */
 #app-mount #{classes.$channel-bar} #{classes.$channel-mentions-bar-text},
 #app-mount #{classes.$channel-bar} #{classes.$channels-unread-icon} {
-    color: var(--spook-highlight) !important;
+    color: var(--spook-neon) !important;
 }
