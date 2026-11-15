@@ -1,7 +1,7 @@
 /**
  * @name Ectoplasm
  * @author Made By Spook
- * @version 1.4.5
+ * @version 1.4.6
  * @description A sleek, near-black Discord theme with icy blue accents and optional blurred backgrounds for a translucent, glass-like appearance.
  * @source https://github.com/madebyspook/Ectoplasm-Discord
  * @updateUrl https://madebyspook.github.io/Ectoplasm-Discord/Ectoplasm.theme.css
@@ -169,6 +169,11 @@ body,
   -webkit-backdrop-filter: var(--spook-glass-filter);
   background: var(--spook-glass-dark) !important;
   margin-bottom: 20px !important;
+}
+
+/* Boost goal track */
+#app-mount .container_H5ozaj .progressContainer_BFMMcK {
+  background: transparent !important;
 }
 
 /* Server name and details */
@@ -819,6 +824,16 @@ body,
   box-shadow: var(--spook-glow-accent) !important;
 }
 
+/* BetterDiscord addon embed */
+#app-mount .bd-addon-store-card-embed {
+  background: var(--spook-glass-light) !important;
+  border: var(--spook-glass-border) !important;
+  border-radius: var(--spook-glass-border-radius);
+  box-shadow: var(--spook-glass-box-shadow) !important;
+  backdrop-filter: var(--spook-glass-filter);
+  -webkit-backdrop-filter: var(--spook-glass-filter);
+}
+
 /* Embed: accent bar */
 #app-mount .embedFull_XyW1ZT {
   position: relative;
@@ -895,7 +910,8 @@ body,
 }
 
 /* Glass styling */
-#app-mount .channelTextArea_2x8-Qn {
+#app-mount .channelTextArea_2x8-Qn,
+#app-mount .wrapper_ST_Y69 {
   background: var(--spook-glass-light) !important;
   border: var(--spook-glass-border) !important;
   border-radius: var(--spook-glass-border-radius);

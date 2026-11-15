@@ -18,6 +18,11 @@
     margin-bottom: 20px !important;
 }
 
+/* Boost goal track */
+#app-mount #{classes.$channels-container} #{classes.$boost-goal-progress-track} {
+    background: transparent !important;
+}
+
 /* Server name and details */
 #app-mount #{classes.$bar-title} #{classes.$text-default-color},
 #app-mount #{classes.$channels-guild-badge-and-name} #{classes.$channels-header-name},

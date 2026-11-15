@@ -253,6 +253,12 @@
 
 
 
+/* BetterDiscord addon embed */
+#app-mount .bd-addon-store-card-embed {
+    @include mixins.glass-panel();
+    @include mixins.backdrop-blur();
+}
+
 /* Embed: accent bar */
 #app-mount #{classes.$embed-full} {
     position: relative;

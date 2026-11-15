@@ -2,7 +2,8 @@
 @use "../abstracts/mixins";
 
 /* Glass styling */
-#app-mount #{classes.$channel-text-area} {
+#app-mount #{classes.$channel-text-area},
+#app-mount #{classes.$channel-follow-wrapper} {
     @include mixins.glass-panel();
 }
 
