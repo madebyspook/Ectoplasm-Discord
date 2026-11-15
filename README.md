@@ -2,6 +2,8 @@
 
 A dark BetterDiscord theme featuring translucent glass surfaces, electric blue accents, and neon glow effects.
 
+![Ectoplasm Preview](assets/preview.png)
+
 ## Installation
 
 1. Install [BetterDiscord](https://betterdiscord.app/).
