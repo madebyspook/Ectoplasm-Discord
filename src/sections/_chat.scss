@@ -135,7 +135,7 @@
 
 /* Own reaction: accent count */
 #app-mount #{classes.$reaction}#{classes.$reaction-me} #{classes.$reaction-count} {
-    color: var(--spook-highlight) !important;
+    color: var(--spook-neon) !important;
 }
 
 /* Reaction counts */
@@ -174,7 +174,7 @@
 
 /* Thread preview card title */
 #app-mount #{classes.$thread-embed} #{classes.$chat-name} {
-    color: var(--spook-highlight) !important;
+    color: var(--spook-neon) !important;
 }
 
 /* Thread preview card message count link */

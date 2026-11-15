@@ -27,7 +27,7 @@
 
 /* Search group headers */
 #app-mount #{classes.$search-popout-group-header} #{classes.$text-xs-semibold} {
-    color: var(--spook-highlight) !important;
+    color: var(--spook-neon) !important;
 }
 
 /* Search Icon, Text, In: text */
@@ -48,7 +48,7 @@
 /* Search filter sublabels: in:, has:, mentions: */
 #app-mount #{classes.$search-filter-sublabel-text-container} #{classes.$text-sm-semibold},
 #app-mount #{classes.$search-filter-sublabel-text-container} #{classes.$text-sm-medium} {
-    color: var(--spook-highlight) !important;
+    color: var(--spook-neon) !important;
 }
 
 /* Search row hover */

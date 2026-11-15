@@ -1,7 +1,7 @@
 /**
  * @name Ectoplasm
  * @author Made By Spook
- * @version 1.4.3
+ * @version 1.4.4
  * @description A sleek, near-black Discord theme with icy blue accents and optional blurred backgrounds for a translucent, glass-like appearance.
  * @source https://github.com/madebyspook/Ectoplasm-Discord
  * @updateUrl https://madebyspook.github.io/Ectoplasm-Discord/Ectoplasm.theme.css
@@ -15,18 +15,14 @@
    Replacing that file may overwrite your customizations.
    ============================================================ */
 :root {
-  /* Accent color */
   --spook-accent: #3C86ff;
-  /* Background: enable ONE option below. Comment out the previous
-     option's declarations when switching. Glass and blur stay enabled. */
-  /* 1. BackgroundManager (default; requires BackgroundManager) */
-  /* --spook-background-image: var(--bgm-url); */
-  /* --spook-background-fill: transparent; */
-  /* 2. Custom wallpaper (BackgroundManager is not required) */
-  --spook-background-image: url("https://i.imgur.com/M3ZBKlD.png");
-  --spook-background-fill: transparent;
-  /* 3. Solid background (BackgroundManager is not required) */
-  /*--spook-background-image: none;*/
-  /*--spook-background-color: none;*/
-  /*--spook-background-fill: oklch(from var(--spook-accent) 18% 0.02 h);*/
+  --spook-neon: #C5DAFF;
+  --spook-bg-primary: #15171c;
+  --spook-bg-gradient-upper: var(--spook-bg-primary);
+  --spook-bg-gradient-lower: var(--spook-bg-primary);
+  --spook-bg-darken-factor: 0;
+  --spook-primary: #BBD0F2;
+  --spook-secondary: #6A7C99;
+  --spook-muted: #4F6180;
+  --spook-background-image: var(--bgm-url);
 }
