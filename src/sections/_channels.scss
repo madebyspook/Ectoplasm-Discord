@@ -18,6 +18,12 @@
     margin-bottom: 20px !important;
 }
 
+/* User status and settings panel */
+#app-mount #{classes.$channels-user-panels} {
+    @include mixins.glass-panel();
+    @include mixins.backdrop-blur();
+}
+
 /* Boost goal track */
 #app-mount #{classes.$channels-container} #{classes.$boost-goal-progress-track} {
     background: transparent !important;
