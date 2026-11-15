@@ -1,7 +1,7 @@
 /**
  * @name Ectoplasm
  * @author Made By Spook
- * @version 1.4.6
+ * @version 1.4.7
  * @description A sleek, near-black Discord theme with icy blue accents and optional blurred backgrounds for a translucent, glass-like appearance.
  * @source https://github.com/madebyspook/Ectoplasm-Discord
  * @updateUrl https://madebyspook.github.io/Ectoplasm-Discord/Ectoplasm.theme.css
@@ -9,19 +9,31 @@
 
 @import url("https://madebyspook.github.io/Ectoplasm-Discord/dist/Ectoplasm.css");
 
+/* Shared by the hosted stylesheet and the downloadable loader. */
+
+/* The build script supplies metadata and the remote import from package.json. */
 /* ============================================================
    USER CONFIGURATION
    Edit these values in your downloaded Ectoplasm.theme.css.
    Replacing that file may overwrite your customizations.
    ============================================================ */
 :root {
+  /* Accent color */
   --spook-accent: #3C86ff;
   --spook-neon: #C5DAFF;
+
+  /* Background Colors */
   --spook-bg-primary: #15171c;
   --spook-bg-gradient-upper: var(--spook-bg-primary);
   --spook-bg-gradient-lower: var(--spook-bg-primary);
   --spook-bg-darken-factor: 0;
+
+  /* Text and Icon Colors */
   --spook-primary: #BBD0F2;
   --spook-secondary: #6A7C99;
-  --spook-muted: #4F6180;
+  --spook-muted: #4F6180; /* Unused */
+
+  /* Background: enable ONE option below. Disabling all enables Vibrancy on Mac OS */
+  /* --spook-background-image: var(--bgm-url); // BackgroundManager */
+  /* --spook-background-image: url("https://i.imgur.com/M3ZBKlD.png"); // Custom image link */
 }

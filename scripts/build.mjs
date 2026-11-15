@@ -1,6 +1,6 @@
-import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
-import { homedir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
+import { homedir, tmpdir } from 'node:os';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import * as sass from 'sass';
@@ -51,16 +51,40 @@ function writeAtomic(path, contents) {
   }
 }
 
+// Compile a temporary source tree so Sass can retain silent comments as CSS comments.
+function compileStylesheets() {
+  const directory = mkdtempSync(join(tmpdir(), 'ectoplasm-scss-'));
+  const comments = [];
+  // Skip strings, block comments, and unquoted URLs before matching line comments.
+  const tokens = /"(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*'|\/\*[\s\S]*?\*\/|url\(\s*[^\s"'()][^()]*\)|\/\/[^\r\n]*|^[\t ]*\r?(?=\n)/gim;
+  try {
+    for (const name of readdirSync(source, { recursive: true }).filter(name => name.endsWith('.scss'))) {
+      const contents = readFileSync(join(source, name), 'utf8').replace(tokens, token => {
+        if (/^[\t ]*\r?$/.test(token)) return '/* ECTOPLASM_EMPTY_LINE */';
+        if (!token.startsWith('//')) return token;
+        const index = comments.push(token.slice(2)) - 1;
+        // Placeholders prevent Sass from evaluating interpolation inside comments.
+        return `/* ECTOPLASM_LINE_COMMENT_${index} */`;
+      });
+      const destination = join(directory, name);
+      mkdirSync(dirname(destination), { recursive: true });
+      writeFileSync(destination, contents);
+    }
+    return ['main.scss', 'loader.scss'].map(name => {
+      const { css } = sass.compile(join(directory, name), { style: 'expanded', sourceMap: false });
+      return css
+        .replace(/^[\t ]*\/\* ECTOPLASM_EMPTY_LINE \*\/[\t ]*$/gm, '')
+        .replace(/\/\* ECTOPLASM_LINE_COMMENT_(\d+) \*\//g, (_, index) =>
+          `/*${comments[index].replaceAll('*/', '* /')} */`);
+    });
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+}
+
 function build({ check, dev, themesDir }) {
   const { metadata, stylesheetUrl } = readMetadata();
-  const { css } = sass.compile(join(source, 'main.scss'), {
-    style: 'expanded',
-    sourceMap: false,
-  });
-  const { css: configuration } = sass.compile(join(source, 'loader.scss'), {
-    style: 'expanded',
-    sourceMap: false,
-  });
+  const [css, configuration] = compileStylesheets();
   const productionHeader = header(metadata);
   const outputs = [
     [loaderPath, `${productionHeader}\n@import url("${stylesheetUrl}");\n\n${configuration}`],

@@ -61,6 +61,38 @@ async function stop(child) {
   await closed;
 }
 
+test('build preserves line comments without changing strings, URLs, or disabled declarations', async () => {
+  await withFixture(directory => {
+    const configuration = join(directory, 'src/abstracts/_configuration.scss');
+    writeFileSync(configuration, `${readFileSync(configuration, 'utf8')}
+// Literal #{not-a-variable} and */ stay comments
+:root {
+    --comment-test: "https://example.com/a//b"; // Inline note
+    --url-test: url(https://example.com/image.png);
+
+
+    /* Existing // block comment */
+    // --disabled-test: red;
+}
+`);
+    const result = run(directory);
+    assert.equal(result.status, 0, result.stderr);
+    for (const file of ['Ectoplasm.theme.css', 'dist/Ectoplasm.css']) {
+      const css = contents(directory, file);
+      assert.ok(css.includes('/* Literal #{not-a-variable} and * / stay comments */'));
+      assert.ok(css.includes('/* Inline note */'));
+      assert.ok(css.includes('/* Existing // block comment */'));
+      assert.match(css, /--url-test: url\(https:\/\/example.com\/image.png\);\n\n\n  \/\* Existing/);
+      assert.ok(css.includes('/* --disabled-test: red; */'));
+      assert.ok(css.includes('"https://example.com/a//b"'));
+      assert.ok(css.includes('url(https://example.com/image.png)'));
+      assert.ok(!css.includes('ECTOPLASM_LINE_COMMENT_'));
+      assert.ok(!css.includes('ECTOPLASM_EMPTY_LINE'));
+    }
+    assert.equal(run(directory, '--check').status, 0);
+  });
+});
+
 test('build emits matching metadata, preserves public URLs, and check never rewrites files', async () => {
   await withFixture(directory => {
     assert.equal(run(directory).status, 0);
