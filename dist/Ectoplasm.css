@@ -1,7 +1,7 @@
 /**
  * @name Ectoplasm
  * @author Made By Spook
- * @version 1.4.4
+ * @version 1.4.5
  * @description A sleek, near-black Discord theme with icy blue accents and optional blurred backgrounds for a translucent, glass-like appearance.
  * @source https://github.com/madebyspook/Ectoplasm-Discord
  * @updateUrl https://madebyspook.github.io/Ectoplasm-Discord/Ectoplasm.theme.css
@@ -151,6 +151,16 @@ body,
   box-shadow: var(--spook-glow-accent);
   filter: var(--spook-glow-filter-strong);
   text-shadow: 0 1px 3px rgb(0, 0, 0), 0 0 5px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* CollapsibleUI collapsed channel-list border */
+#app-mount .sidebarList_pog62O {
+  border-right-width: calc(1px * var(--cui-channel-list-toggled, 1)) !important;
+}
+
+/* CollapsibleUI collapsed channel-list contents */
+#app-mount .sidebarList_pog62O > .container_H5ozaj {
+  opacity: var(--cui-channel-list-toggled, 1) !important;
 }
 
 /* Channel List Background */
@@ -1012,6 +1022,26 @@ body,
   position: relative;
   isolation: isolate;
   background: transparent !important;
+}
+
+/* Forum all-tags panel */
+#app-mount .container_r0937z {
+  background: var(--spook-glass-light) !important;
+  border: var(--spook-glass-border) !important;
+  border-radius: var(--spook-glass-border-radius);
+  box-shadow: var(--spook-glass-box-shadow) !important;
+  backdrop-filter: var(--spook-glass-filter);
+  -webkit-backdrop-filter: var(--spook-glass-filter);
+}
+
+/* Forum all-tags heading */
+#app-mount .container_r0937z .headerText_r0937z {
+  color: var(--spook-secondary) !important;
+}
+
+/* Forum all-tags labels */
+#app-mount .container_r0937z .tag_r0937z .lineClamp1_MMUIw6 {
+  color: var(--spook-primary) !important;
 }
 
 /* Forum tag filter pills */
